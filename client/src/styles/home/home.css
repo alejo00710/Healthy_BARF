@@ -1,0 +1,25 @@
+/* Fuentes y reset */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.homeBody {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.container {
+width: 90%;
+max-width: 1200px;
+margin: 0 auto;
+padding-left: 0 !important;
+padding-right: 0 !important;
+}

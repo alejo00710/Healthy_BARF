@@ -1,0 +1,44 @@
+.hero {
+  position: relative;
+  width: 100%;
+  left: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.heroSliderPlaceholder {
+  width: 100%;
+  height: 450px;
+  margin: 0;
+  padding: 0;
+  background-color: #060606;
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* MEDIA QUERIES RESPONSIVE */
+@media (max-width: 1024px) {
+  .heroSliderPlaceholder {
+    height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSliderPlaceholder {
+    height: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroSliderPlaceholder {
+    height: 200px;
+  }
+}

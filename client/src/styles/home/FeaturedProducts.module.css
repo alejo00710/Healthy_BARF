@@ -1,0 +1,195 @@
+.productsHeader {
+  max-width: 600px; 
+  margin: 0 auto 40px;
+  text-align: center;
+  color: #F2BC8D;
+}
+
+.productsDescription {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  padding-bottom: 40px;
+}
+
+/* Estructura base del card */
+.productCard {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  height: 300px;
+  transition: all 0.3s ease;
+}
+
+.productImage {
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: all 0.3s ease;
+}
+
+.productInfo {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  padding: 15px;
+  color: white;
+  z-index: 2;
+}
+
+.price {
+  font-weight: bold;
+  color: white;
+  margin-top: 5px;
+}
+
+.price span {
+  font-size: 12px;
+  color: white;
+}
+
+/* Iconos */
+.productIcons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  position: relative;
+  z-index: 10; 
+}
+
+.iconBtn {
+  background: white;
+  color: #000000;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 11;
+  pointer-events: auto; 
+}
+
+/* Overlay completo */
+.productOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgb(166, 78, 85, 0.80);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 20px;
+  text-align: center;
+  pointer-events: none; 
+}
+
+
+.iconBtn:hover {
+  transform: scale(1.1);
+  background: #f0f0f0;
+}
+
+/* Efecto hover */
+.productCard:hover .productOverlay {
+  opacity: 1;
+}
+
+.productCard:hover .productImage {
+  filter: brightness(0.7);
+}
+
+.overlayDescription {
+  margin-bottom: 15px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+
+/* ===================== MEDIA QUERIES ===================== */
+
+/* Tablets y laptops medianas */
+@media (max-width: 1024px) {
+  .productsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+
+  .productCard {
+    height: 280px;
+  }
+
+  .overlayDescription {
+    font-size: 14px;
+  }
+}
+
+/* Tablets verticales y móviles grandes */
+@media (max-width: 768px) {
+  .productsHeader {
+    padding: 0 20px;
+  }
+
+  .productsDescription {
+    font-size: 15px;
+  }
+
+  .productCard {
+    height: 260px;
+  }
+
+  .iconBtn {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+
+  .overlayDescription {
+    font-size: 13px;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+  .productsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .productCard {
+    height: 240px;
+  }
+
+  .productInfo {
+    padding: 10px;
+  }
+
+  .iconBtn {
+    width: 32px;
+    height: 32px;
+    font-size: 15px;
+  }
+
+  .overlayDescription {
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,197 @@
+.portionCalculator {
+  position: relative;
+  padding: 80px 20px;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+}
+
+/* Imágenes dentro del recuadro */
+.petImages {
+  margin-bottom: 20px;
+}
+
+.petIcon {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin: 0 10px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+/* Overlay rojo */
+.portionCalculator::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(200, 60, 60, 0.3); 
+  z-index: 1;
+}
+
+.petImages {
+  position: relative;
+  z-index: 3;
+  margin-bottom: 20px;
+}
+
+.petIcon {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin: 0 15px;
+}
+
+.calculatorContainer {
+  position: relative; 
+  z-index: 2; 
+  background: white;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 40px 30px 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.calculatorTitle {
+  color: #BF5A5A;
+  margin-bottom: 25px;
+}
+
+.inputGroup {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.inputGroup label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #555;
+}
+
+.sizeOptions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.sizeBtn {
+  flex: 1;
+  padding: 10px;
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.sizeBtn.active {
+  background: #BF5A5A;
+  color: white;
+  border-color: #BF5A5A;
+}
+
+.petWeight {
+  width: 95%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.calculateBtn {
+  background: #BF5A5A;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+
+.calculateBtn:hover {
+  background: #c9302c;
+}
+
+
+
+/* Móviles pequeños (hasta 480px) */
+@media (max-width: 480px) {
+  .calculatorContainer {
+    padding: 30px 20px;
+  }
+
+  .petIcon {
+    width: 40px;
+    height: 40px;
+    margin: 0 8px;
+  }
+
+  .sizeOptions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .sizeBtn {
+    font-size: 14px;
+  }
+
+  .petWeight {
+    font-size: 14px;
+  }
+
+  .calculateBtn {
+    width: 100%;
+    font-size: 14px;
+  }
+}
+
+/* Tablets (481px a 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .calculatorContainer {
+    max-width: 400px;
+    padding: 35px 25px;
+  }
+
+  .petIcon {
+    width: 50px;
+    height: 50px;
+    margin: 0 12px;
+  }
+
+  .sizeBtn {
+    font-size: 15px;
+  }
+
+  .petWeight {
+    font-size: 15px;
+  }
+
+  .calculateBtn {
+    font-size: 15px;
+  }
+}
+
+/* Laptops (769px a 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .calculatorContainer {
+    max-width: 450px;
+  }
+
+  .calculateBtn {
+    padding: 14px 32px;
+    font-size: 16px;
+  }
+}
+
+/* Pantallas grandes (más de 1024px) */
+@media (min-width: 1025px) {
+  .calculatorContainer {
+    max-width: 500px;
+  }
+}
