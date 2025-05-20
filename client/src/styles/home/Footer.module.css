@@ -1,5 +1,5 @@
 .mainFooter {
-  background: #11bfbf; 
+  background: #11bfbf;
   color: white;
   padding: 50px 0;
 }
@@ -12,29 +12,14 @@
 
 .footerGrid {
   display: flex;
-  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: space-between;
   gap: 40px;
 }
 
 .footerColumn {
-  flex: 1;
-  min-width: 180px;
-
-}
-
-.footerColumn img {
-  margin-left: 50px;
-}
-
-.verticalDivider {
-  width: 1px;
-  height: 200px;
-  background: rgba(255,255,255,0.2);
-}
-
-.footerLogo {
-  max-width: 150px;
-  height: auto;
+  flex: 1 1 250px;
+  min-width: 200px;
 }
 
 .footerTitle {
@@ -44,25 +29,12 @@
   color: white;
 }
 
-
-.whatsappBtn img {
-  width: 40px;
-  margin-top: 10px;
-  margin-left: 60px;
-  transition: transform 0.3s;
-}
-
-.whatsappBtn img:hover {
-  transform: scale(1.1);
-}
-
 .sectionTitle {
   font-size: 1.1rem;
   margin-bottom: 15px;
   color: white;
   position: relative;
 }
-
 
 ul {
   list-style: none;
@@ -74,7 +46,7 @@ li {
 }
 
 a {
-  color: #E0E0E0; 
+  color: #E0E0E0;
   text-decoration: none;
   transition: color 0.3s;
 }
@@ -90,10 +62,20 @@ address p {
   line-height: 1.4;
 }
 
+.whatsappBtn img {
+  width: 40px;
+  margin-top: 10px;
+  transition: transform 0.3s;
+}
+
+.whatsappBtn img:hover {
+  transform: scale(1.1);
+}
+
 .copyright {
   margin-top: 50px;
   padding-top: 20px;
-  border-top: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center;
 }
 
@@ -103,7 +85,6 @@ address p {
   margin: 0;
 }
 
-
 /* Móviles pequeños (hasta 480px) */
 @media (max-width: 480px) {
   .footerGrid {
@@ -112,17 +93,8 @@ address p {
     gap: 30px;
   }
 
-  .verticalDivider {
-    display: none;
-  }
-
-  .footerColumn img {
-    margin-left: 0;
-    display: block;
-    margin: 0 auto;
-  }
-
-  .footerTitle, .sectionTitle {
+  .footerTitle,
+  .sectionTitle {
     font-size: 1.2rem;
     text-align: center;
   }
@@ -130,10 +102,21 @@ address p {
   .whatsappBtn img {
     margin-left: 0;
     margin-top: 20px;
+    width: 70px;
+    height: 70px;
   }
 
   .copyright p {
     font-size: 0.8rem;
+  }
+
+  .footerColumn {
+    text-align: center;
+  }
+
+  ul,
+  address {
+    text-align: center;
   }
 }
 
@@ -142,15 +125,11 @@ address p {
   .footerGrid {
     flex-direction: column;
     gap: 40px;
+    align-items: center;
   }
 
-  .footerColumn img {
-    margin-left: 0;
-    display: block;
-    margin: 0 auto;
-  }
-
-  .footerTitle, .sectionTitle {
+  .footerTitle,
+  .sectionTitle {
     font-size: 1.3rem;
     text-align: center;
   }
@@ -158,10 +137,21 @@ address p {
   .whatsappBtn img {
     margin-left: 0;
     margin-top: 20px;
+    width: 70px;
+    height: 70px;
   }
 
   .copyright p {
     font-size: 0.9rem;
+  }
+
+  .footerColumn {
+    text-align: center;
+  }
+
+  ul,
+  address {
+    text-align: center;
   }
 }
 
@@ -171,16 +161,15 @@ address p {
     gap: 60px;
   }
 
-  .footerColumn img {
-    margin-left: 50px;
-  }
-
-  .footerTitle, .sectionTitle {
+  .footerTitle,
+  .sectionTitle {
     font-size: 1.4rem;
   }
 
   .whatsappBtn img {
-    margin-left: 60px;
+    margin-left: 50px;  
+    width: 70px;
+    height: 70px;
   }
 
   .copyright p {
@@ -194,16 +183,15 @@ address p {
     gap: 80px;
   }
 
-  .footerColumn img {
-    margin-left: 50px;
-  }
-
-  .footerTitle, .sectionTitle {
+  .footerTitle,
+  .sectionTitle {
     font-size: 1.5rem;
   }
 
   .whatsappBtn img {
-    margin-left: 60px;
+    margin-left: 50px;
+    width: 70px;
+    height: 70px;
   }
 
   .copyright p {

@@ -105,32 +105,28 @@
 /* ===================== MEDIA QUERIES ===================== */
 
 /* Tablets y laptops medianas */
-@media (max-width: 1024px) {
-    .navbar {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
-    }
+@media (min-width: 769px) and (max-width: 1024px) {
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
   
-    .navLinks {
-      justify-content: flex-start;
+  .navLinks a {
       flex-wrap: wrap;
       gap: 15px;
       margin: 10px 0;
     }
   
-    .navIcons {
-      justify-content: flex-start;
-      flex-wrap: wrap;
+    .navIcons a {
+      display: flex;
+      align-items: center;
     }
   
-    .searchBox input {
-      width: 140px;
-    }
   }
   
   /* Tablets verticales y móviles grandes */
-  @media (max-width: 768px) {
+  @media (min-width: 481px) and (max-width: 768px) {
     .logoImg {
       height: 35px;
     }
@@ -139,18 +135,10 @@
       font-size: 14px;
     }
   
-    .searchBox input {
-      width: 120px;
-      font-size: 12px;
-    }
-  
-    .searchBox span {
-      font-size: 12px;
-      left: 8px;
-    }
-  
     .navIcons a {
       font-size: 18px;
+      display: flex;
+      align-items: center;
     }
   
     .slogan {
@@ -161,6 +149,7 @@
   /* Móviles pequeños */
   @media (max-width: 480px) {
     .navbar {
+      flex-direction: column;
       align-items: center;
     }
   
@@ -175,9 +164,6 @@
       gap: 10px;
     }
   
-    .searchBox input {
-      width: 100px;
-    }
   
     .logoImg {
       height: 40px;
