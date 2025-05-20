@@ -138,7 +138,6 @@
     }
   
     .productImage1 {
-      flex-direction: column;
       height: auto;
       gap: 10px;
     }

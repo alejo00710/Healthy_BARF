@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from '../../styles/home/Footer.module.css';
-import logo from '../../assets/images/Healthy Barf icono sin fondo-13.png';
 import whatsappIcon from '../../assets/images/icons8-whatsapp-100.png';
 
 const Footer = () => {
@@ -8,14 +7,6 @@ const Footer = () => {
     <footer className={styles.mainFooter}>
       <div className={`container ${styles.container}`}>
         <div className={styles.footerGrid}>
-          {/* Columna Logo */}
-          <div className={styles.footerColumn}> 
-            <img src={logo} alt="Healthy BARF" className={styles.footerLogo} />
-          </div>
-          
-          {/* Divisor vertical */}
-          <div className={styles.verticalDivider}></div>
-          
           {/* Columna Contacto */}
           <div className={styles.footerColumn}>
             <h3 className={styles.footerTitle}>Contáctanos</h3>
@@ -23,7 +14,7 @@ const Footer = () => {
               <img src={whatsappIcon} alt="WhatsApp" />
             </a>
           </div>
-          
+
           {/* Columna Términos */}
           <div className={styles.footerColumn}>
             <h4 className={styles.sectionTitle}>Términos y condiciones</h4>
@@ -34,7 +25,7 @@ const Footer = () => {
               <li><a href="#">Términos y condiciones</a></li>
             </ul>
           </div>
-          
+
           {/* Columna Dirección */}
           <div className={styles.footerColumn}>
             <h4 className={styles.sectionTitle}>Encuéntranos en:</h4>
@@ -46,7 +37,7 @@ const Footer = () => {
             </address>
           </div>
         </div>
-        
+
         {/* Copyright */}
         <div className={styles.copyright}>
           <p>Copyright © 2024 | Todos los derechos reservados</p>
