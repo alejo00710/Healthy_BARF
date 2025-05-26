@@ -1,0 +1,213 @@
+.profileContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.header {
+  margin-bottom: 30px;
+}
+
+.backButton {
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 5px 0;
+}
+
+.backButton:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+.profileSection {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profileTitle {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.userWelcome {
+  margin-bottom: 25px;
+}
+
+.username {
+  font-size: 18px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.welcomeText {
+  color: #666;
+  margin: 0;
+}
+
+.tabsContainer {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+.tab {
+  padding: 10px 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #666;
+  position: relative;
+}
+
+.tab:hover {
+  color: #333;
+}
+
+.activeTab {
+  color: #11BFBF;
+  font-weight: bold;
+}
+
+.activeTab::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #11BFBF;
+}
+
+.formContainer {
+  padding: 10px;
+}
+
+.profileForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup label {
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 14px;
+}
+
+.formInput {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.formInput:focus {
+  outline: none;
+  border-color: #11BFBF;
+}
+
+.updateButton {
+  background-color: #11BFBF;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+  align-self: flex-start;
+}
+
+.updateButton:hover {
+  background-color: #0e8a8a;
+}
+
+/* Documentos en fila */
+.documentRow {
+  display: flex;
+  gap: 15px;
+}
+
+.documentType {
+  flex: 1;
+  min-width: 60%;
+}
+
+.documentNumber {
+  flex: 1;
+}
+
+/* Estilos para pedidos */
+.ordersContainer {
+  padding: 20px;
+}
+
+.ordersTitle {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.ordersTable {
+  width: 100%;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tableHeader, .tableRow {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  padding: 12px 15px;
+}
+
+.tableHeader {
+  background-color: #f5f5f5;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+}
+
+.tableRow {
+  border-bottom: 1px solid #eee;
+}
+
+.tableRow:last-child {
+  border-bottom: none;
+}
+
+.detailsButton {
+  background-color: transparent;
+  color: #11BFBF;
+  border: 1px solid #11BFBF;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.detailsButton:hover {
+  background-color: #11BFBF;
+  color: white;
+}
+
+/* Estilos para favoritos */
+.favoritesContainer {
+  padding: 20px;
+  text-align: center;
+  color: #666;
+}
