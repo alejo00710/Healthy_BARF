@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
+import { useEffect } from "react";
 import "../../styles/auth/auth.css";
-import logo from "../../assets/images/Healthy Barf icono sin fondo-14.png"
+import logo from "../../assets/images/Healthy Barf icono sin fondo-14.png";
 import { Link, useNavigate } from 'react-router-dom';
-
 
 function Register() {
   const navigate = useNavigate();
+  const [acceptedTerms, setAcceptedTerms] = useState(false);
+
+  const handleCheckboxChange = (e) => {
+    setAcceptedTerms(e.target.checked);
+  };
+
+  useEffect(() => {
+  const accepted = sessionStorage.getItem('acceptedTerms');
+  if (accepted === 'true') {
+    setAcceptedTerms(true);
+    sessionStorage.removeItem('acceptedTerms');
+  }
+}, []);
 
   return (
     <div className="form-container">
@@ -29,9 +42,22 @@ function Register() {
         <div className="form-group-full">
           <input type="password" placeholder="Confirmación de contraseña" />
         </div>
-        <div className="form-button">
-          <button type="submit">Registrarme</button>
+
+        <div className="form-group-full">
+          <label>
+            <input
+              type="checkbox"
+              checked={acceptedTerms}
+              onChange={handleCheckboxChange}
+            />
+            &nbsp; He leído y acepto los <Link to="/terminos">Términos y Condiciones</Link>
+          </label>
         </div>
+
+        <div className="form-button">
+          <button type="submit" disabled={!acceptedTerms}>Registrarme</button>
+        </div>
+
         <div className="form-footer">
           <Link to="/login">¿Tienes una cuenta? Inicia sesión</Link>
         </div>

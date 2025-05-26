@@ -1,0 +1,213 @@
+.favoritesContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  margin-bottom: 30px;
+}
+
+.backButton {
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 5px 0;
+}
+
+.backButton:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+.content {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.productsHeader {
+  max-width: 600px; 
+  margin: 0 auto 40px;
+  text-align: center;
+  color: #F2BC8D;
+}
+
+.productsDescription {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  padding-bottom: 40px;
+}
+
+/* Estructura base del card */
+.productCard {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  height: 300px;
+  transition: all 0.3s ease;
+}
+
+.productImage {
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: all 0.3s ease;
+}
+
+.favoriteIcon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.favoriteIcon:hover {
+  transform: scale(1.1);
+}
+
+.productInfo {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  padding: 15px;
+  color: white;
+  z-index: 2;
+}
+
+.price {
+  font-weight: bold;
+  color: white;
+  margin-top: 5px;
+}
+
+.price span {
+  font-size: 12px;
+  color: white;
+}
+
+/* Overlay completo */
+.productOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(166, 78, 85, 0.85);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 20px;
+  text-align: center;
+  pointer-events: none;
+}
+
+.overlayDescription {
+  margin-bottom: 15px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* Efecto hover */
+.productCard:hover .productOverlay {
+  opacity: 1;
+}
+
+.productCard:hover .productImage {
+  filter: brightness(0.7);
+}
+
+/* ===================== MEDIA QUERIES ===================== */
+
+/* Tablets y laptops medianas */
+@media (max-width: 1024px) {
+  .productsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+
+  .productCard {
+    height: 280px;
+  }
+
+  .overlayDescription {
+    font-size: 14px;
+  }
+}
+
+/* Tablets verticales y móviles grandes */
+@media (max-width: 768px) {
+  .productsHeader {
+    padding: 0 20px;
+  }
+
+  .productsDescription {
+    font-size: 15px;
+  }
+
+  .productCard {
+    height: 260px;
+  }
+
+  .favoriteIcon {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+
+  .overlayDescription {
+    font-size: 13px;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+  .productsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .productCard {
+    height: 240px;
+  }
+
+  .productInfo {
+    padding: 10px;
+  }
+
+  .favoriteIcon {
+    width: 32px;
+    height: 32px;
+    font-size: 15px;
+  }
+
+  .overlayDescription {
+    font-size: 12px;
+  }
+}
