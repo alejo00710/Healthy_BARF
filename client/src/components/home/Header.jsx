@@ -29,7 +29,7 @@ const Header = () => {
             </ul>
             <div className={styles.navIcons}>
               <a href="#"><img src={carrito} alt="Carrito" /></a> 
-              <Link to="/editProfile"><img src={usuario} alt="Usuario" /></Link> 
+              <Link to="/register"><img src={usuario} alt="Usuario" /></Link> 
               <Link to="/favorite"><img src={favorito} alt="Favorito" /></Link> 
             </div>
           </nav>
