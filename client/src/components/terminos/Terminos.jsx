@@ -7,7 +7,7 @@ function Terminos() {
 
   const handleAceptar = () => {
     sessionStorage.setItem('acceptedTerms', 'true');
-    navigate('/register');
+    navigate(-1);
   };
 
   return (

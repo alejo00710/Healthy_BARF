@@ -23,11 +23,19 @@ function Register() {
 
   useEffect(() => {
   const accepted = sessionStorage.getItem('acceptedTerms');
+  const savedFormData = sessionStorage.getItem('formData');
+
   if (accepted === 'true') {
     setAcceptedTerms(true);
     sessionStorage.removeItem('acceptedTerms');
   }
+
+  if (savedFormData) {
+    setFormData(JSON.parse(savedFormData));
+    sessionStorage.removeItem('formData');
+  }
 }, []);
+
 
  const handleChange = (e) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -124,7 +132,15 @@ function Register() {
             checked={acceptedTerms}
             onChange={handleCheckboxChange}
           />
-          &nbsp; He leído y acepto los <Link to="/terminos">Términos y Condiciones</Link>
+          &nbsp; He leído y acepto los
+          <span
+            onClick={() => {
+              sessionStorage.setItem('formData', JSON.stringify(formData));
+              navigate('/terminos');
+            }}
+          >
+            Términos y Condiciones
+          </span>
         </label>
       </div>
 
