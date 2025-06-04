@@ -9,6 +9,21 @@
   margin-bottom: 30px;
 }
 
+.profileHeader {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.headerImage {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  margin-left: 40%;
+}
+
 .backButton {
   background: none;
   border: none;
@@ -210,4 +225,82 @@
   padding: 20px;
   text-align: center;
   color: #666;
+}
+
+/* ---------- RESPONSIVE DESIGN ---------- */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .profileContainer {
+    padding: 15px;
+  }
+
+  .headerImage {
+    width: 150px;
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+  .tabsContainer {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .tab {
+    width: 100%;
+    text-align: left;
+  }
+
+  .documentRow {
+    flex-direction: column;
+  }
+
+  .updateButton {
+    width: 100%;
+  }
+
+  .ordersTable {
+    font-size: 14px;
+  }
+
+  .tableHeader,
+  .tableRow {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+      "producto cantidad"
+      "precio precio";
+  }
+
+  .tableHeader span:nth-child(3),
+  .tableRow span:nth-child(3) {
+    grid-column: span 2;
+    text-align: left;
+  }
+}
+
+/* Móviles */
+@media (max-width: 480px) {
+  .profileTitle {
+    font-size: 20px;
+  }
+
+  .username {
+    font-size: 16px;
+  }
+
+  .formInput {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .updateButton {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .detailsButton {
+    width: 100%;
+  }
 }

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styles from '../../styles/editProfile/Profile.module.css';
 import { useNavigate } from 'react-router-dom';
+import headerImage from '../../assets/images/Healthy Barf icono sin fondo-12.png'; // Asegúrate de tener esta imagen
+
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -13,6 +15,14 @@ const Profile = () => {
 
   return (
     <div className={styles.profileContainer}>
+     {/* Nueva sección de imagen de encabezado */}
+      <div className={styles.profileHeader}>
+        <img 
+          src={headerImage} 
+          alt="Healthy Barf" 
+          className={styles.headerImage}
+        />
+      </div>
       {/* Encabezado con botón de volver */}
       <div className={styles.header}>
         <button onClick={handleBack} className={styles.backButton}>
