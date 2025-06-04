@@ -50,6 +50,12 @@
     margin-bottom: 15px;
 }
 
+.form-group-full span {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .form-group-full input {
     width: 95%;
     padding: 12px;
