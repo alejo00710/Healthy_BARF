@@ -1,43 +1,11 @@
 import React from 'react';
 import styles from '../../styles/home/FeaturedProducts.module.css';
-import polloVerduras from '../../assets/images/pollo y verduras.jpg';
+import { products } from '../../data/products';
+import { Link } from 'react-router-dom';
 
 
-const products = [
-  {
-    id: 1,
-    name: "Dieta Pollo",
-    price: "$3.500",
-    weight: "500gr",
-    image: polloVerduras,
-    description: "Descripción detallada del producto..."
-  },
-  {
-    id: 2,
-    name: "Dieta Pollo",
-    price: "$3.500",
-    weight: "500gr",
-    image: polloVerduras,
-    description: "Descripción detallada del producto..."
-  },
-  {
-    id: 3,
-    name: "Dieta Pollo",
-    price: "$3.500",
-    weight: "500gr",
-    image: polloVerduras,
-    description: "Descripción detallada del producto..."
-  },
-  {
-    id: 4,
-    name: "Dieta Pollo",
-    price: "$3.500",
-    weight: "500gr",
-    image: polloVerduras,
-    description: "Descripción detallada del producto..."
-  },
-  // Más productos...
-];
+
+
 
 const FeaturedProducts = () => {
   return (
@@ -49,12 +17,12 @@ const FeaturedProducts = () => {
             Ingredientes libres de conservantes y aditivos...
           </p>
         </div>
-        
+
         <div className={styles.productsGrid}>
           {products.map((product) => (
-            <div key={product.id} className={styles.productCard}>
-              <div 
-                className={styles.productImage} 
+            <Link to={`/product/${product.id}`} className={styles.productCard} key={product.id}>
+              <div
+                className={styles.productImage}
                 style={{ backgroundImage: `url(${product.image})` }}
               ></div>
               <div className={styles.productInfo}>
@@ -68,7 +36,7 @@ const FeaturedProducts = () => {
                   <button className={styles.iconBtn}>❤️</button>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
