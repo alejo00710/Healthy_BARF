@@ -1,0 +1,116 @@
+/* PersonalData.module.css */
+
+.container {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f6f6f6;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.logo {
+    max-width: 180px;
+    margin: 30px auto;
+}
+
+.volver {
+    text-align: left;
+    margin-left: 30px;
+    margin-bottom: 10px;
+    color: #555;
+    cursor: pointer;
+}
+
+.formulario {
+    margin-bottom: 40px;
+}
+
+.formulario h3 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.campo {
+    background-color: #ebedee;
+    border: none;
+    border-radius: 20px;
+    padding: 12px 20px;
+    margin: 10px;
+    font-size: 16px;
+    color: black;
+    width: 250px;
+    max-width: 90%;
+    display: inline-block;
+}
+
+.formulario select {
+    appearance: none;
+}
+
+.btnSiguiente {
+    background-color: #00c6b0;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.resumen {
+    background-color: #00c6b0;
+    color: white;
+    width: 300px;
+    margin: 0 auto 40px;
+    padding: 20px;
+    border-radius: 16px;
+    text-align: left;
+}
+
+.resumen p {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0;
+}
+
+.cupon {
+    background-color: white;
+    color: #333;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.cupon input {
+    padding: 10px;
+    border-radius: 20px;
+    width: 70%;
+    margin-bottom: 10px;
+}
+
+.cupon button {
+    background-color: #f8b370;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+    .resumen {
+        width: 90%;
+    }
+
+    .campo {
+        width: 90%;
+    }
+
+    .logo {
+        margin-top: 20px;
+    }
+}

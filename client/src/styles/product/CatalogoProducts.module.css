@@ -1,0 +1,105 @@
+.perros {
+    margin: 40px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.backLink {
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+    margin: 20px 0 10px 20px;
+    display: inline-block;
+    font-family: 'Nunito', sans-serif;
+  /* demás estilos */
+}
+
+.mainTitle {
+    font-size: 26px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.subTitle {
+    font-size: 18px;
+    text-align: center;
+    font-weight: normal;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.sectionTitle {
+    font-size: 20px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+.categoryTitle {
+    font-size: 20px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+}
+
+.card {
+    background-color: #f7f7f7;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.cardTitle {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.cardPrice {
+    font-size: 15px;
+    color: #f17228;
+}
+
+/* Media queries también deben ir en el CSS */
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card img {
+        height: 120px;
+    }
+}

@@ -1,0 +1,184 @@
+.cartContainer {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f6f6f6;
+    padding: 40px 20px;
+    
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Logo */
+.logo {
+    max-width: 200px;
+    margin: 0 auto 30px;
+}
+
+/* Tabla */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.table img {
+    width: 80px;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.table th,
+.table td {
+    padding: 12px 8px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 15px;
+    color: #333;
+}
+
+/* Botones de cantidad */
+.cantidad button {
+    padding: 6px 12px;
+    margin: 0 5px;
+    border: none;
+    background-color: #f8b370;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+}
+
+.cantidad button:hover,
+.cantidad button:focus {
+    background-color: #f59e4a;
+}
+
+/* Botón eliminar */
+.eliminar {
+    color: red;
+    font-weight: bold;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    user-select: none;
+}
+
+/* Línea divisoria */
+.divider {
+    height: 1px;
+    background-color: #ddd;
+    margin: 30px 0;
+}
+
+/* Resumen */
+.summary {
+    text-align: left;
+    max-width: 400px;
+    margin: 0 auto 30px;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 16px;
+    color: #444;
+    font-weight: 600;
+}
+
+.totalp {
+    margin-bottom: 30px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #222;
+}
+
+/* Botón finalizar compra */
+.checkoutBtn {
+    padding: 14px 28px;
+    background-color: #f8b370;
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(248, 179, 112, 0.5);
+    transition: background-color 0.3s ease;
+}
+
+.checkoutBtn:hover,
+.checkoutBtn:focus {
+    background-color: #f59e4a;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cartContainer {
+        padding: 30px 15px;
+        margin: 20px auto;
+    }
+
+    .table img {
+        width: 60px;
+    }
+
+    .table th,
+    .table td {
+        padding: 10px 5px;
+        font-size: 14px;
+    }
+
+    .cantidad button {
+        padding: 5px 10px;
+        font-size: 13px;
+    }
+
+    .summary {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    .item {
+        font-size: 15px;
+    }
+
+    .totalp {
+        font-size: 18px;
+    }
+
+    .checkoutBtn {
+        width: 100%;
+        padding: 12px 0;
+        font-size: 15px;
+        border-radius: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .table img {
+        width: 50px;
+    }
+
+    .cantidad button {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+
+    .table th,
+    .table td {
+        padding: 8px 4px;
+        font-size: 13px;
+    }
+
+    .summary {
+        padding: 0 5px;
+    }
+
+    .checkoutBtn {
+        font-size: 14px;
+        padding: 10px 0;
+    }
+}
