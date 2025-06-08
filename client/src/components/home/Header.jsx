@@ -39,7 +39,7 @@ const Header = () => {
                   <button onClick={logout}>Cerrar sesión</button>
                 </div>
               ) : (
-                <Link to="/login"><img src={usuario} alt="Usuario" /></Link>
+                <Link to="/Entrega"><img src={usuario} alt="Usuario" /></Link>
               )}
               <Link to="/favorite"><img src={favorito} alt="Favorito" /></Link> 
             </div>

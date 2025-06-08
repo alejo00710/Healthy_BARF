@@ -1,0 +1,123 @@
+.containerEntrega {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.headerImage {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin-left: 35%;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.backButton {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 5px 0;
+}
+
+.backButton:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+.tabsContainer {
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.tabTitle {
+    color: #11BFBF;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    padding: 12px 0;
+    position: relative;
+    display: inline-block;
+}
+
+
+.mainContent {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.deliverySection {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.formGroup input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    font-size: 16px;
+    background-color: #f2bc8dc4;
+}
+
+
+
+.paymentButton {
+    width: 200px;
+    padding: 10px;
+    background-color: #11BFBF;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 200px;
+}
+
+.paymentButton:hover {
+    background-color: #0f9898;
+}
+
+.summaryCard {
+    width: 40%;
+    padding: 20px;
+    background-color: #11BFBF;
+    border-radius: 8px;
+    margin-top: 20px;
+    margin-left: 160px;
+}
+
+.summaryCard h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #000000a5;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.summaryRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+.summaryTotal {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+    font-weight: bold;
+    font-size: 16px;
+}

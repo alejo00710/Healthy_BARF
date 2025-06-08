@@ -1,0 +1,229 @@
+/* PaymentView.module.css */
+.containerPayment {
+    min-height: 100vh;
+    background-color: #f3f4f6;
+    padding: 1.5rem;
+}
+
+.wrapper {
+    max-width: 64rem;
+    margin: 0 auto;
+    display: flex;
+    gap: 2rem;
+}
+
+.headerImage {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin-left: 43%;
+}
+
+.backButton {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 5px 0;
+    margin-left: 15%;
+}
+
+.backButton:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+
+.paymentSection {
+    flex: 1;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 1.5rem;
+}
+
+.paymentMethods {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.paymentButton {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 9999px;
+    border: 2px solid;
+    text-align: left;
+    font-weight: 500;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.paymentButtonActive {
+    background-color: #11BFBF;
+    border-color: #000000fe;
+    color: rgb(0, 0, 0);
+}
+
+.paymentButtonInactive {
+    background-color: white;
+    border-color: #d1d5db;
+    color: #374151;
+}
+
+.paymentButtonInactive:hover {
+    border-color: #000000;
+}
+
+/* Payment Details */
+.paymentDetails {
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.paymentDetailsTitle {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 1rem;
+}
+
+.qrContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+.qrCode {
+    width: 12rem;
+    height: 12rem;
+    background-color: #e5e7eb;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.qrIcon {
+    color: #6b7280;
+}
+
+.qrText {
+    color: #6b7280;
+    text-align: center;
+}
+
+.mercadopagoText {
+    color: #6b7280;
+    margin-bottom: 1rem;
+}
+
+.mercadopagoInfo {
+    background-color: #dbeafe;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.mercadopagoInfoText {
+    font-size: 0.875rem;
+    color: #1e40af;
+}
+
+/* Order Summary Section */
+.summarySection {
+    width: 20rem;
+}
+
+.summaryCard {
+    background-color: #11BFBF;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    color: rgb(62, 62, 62);
+}
+
+.summaryTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.summaryItems {
+    margin-bottom: 1.5rem;
+}
+
+.summaryItem {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+}
+
+.summaryTotal {
+    font-weight: 600;
+    font-size: 1.125rem;
+}
+
+.summaryDivider {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    margin: 0.75rem 0;
+}
+
+
+/* Pay Button */
+.payButton {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+}
+
+.payButtonEnabled {
+    background-color: #BF5A5A;
+    color: white;
+}
+
+.payButtonEnabled:hover {
+    background-color: #dc2626;
+}
+
+.payButtonDisabled {
+    background-color: #9ca3af;
+    color: #d1d5db;
+    cursor: not-allowed;
+}
+
+.payButtonMessage {
+    text-align: center;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .wrapper {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .summarySection {
+        width: 100%;
+    }
+
+    .containerPayment {
+        padding: 1rem;
+    }
+}

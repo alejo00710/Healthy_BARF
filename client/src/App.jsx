@@ -10,9 +10,9 @@ import CatalogoProducts from "./components/product/CatalogoProducts";
 import CartPage from './pages/CartPage';
 import CartWithPage from "./pages/CartWithPage";
 import PersonalDataPage from "./pages/PersonalDataPage";
-
-
-
+import EntregaPage from './pages/EntregaPage';
+import PagoPage from './pages/PagoPage';
+import DetalleCompraPage from './pages/DetalleCompra';
 
 
 function App() {
@@ -29,8 +29,11 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/editProfile" element={<ProfilePage />} />
-        <Route path="/favorite" element={<FavoritePage />} />
-        <Route path="/terminos" element={<TerminosPage />} />        
+        <Route path="/favorite" element={<FavoritePage />} />      
+        <Route path="/terminos" element={<TerminosPage />} />
+        <Route path="/Entrega" element={<EntregaPage />} />
+        <Route path="/Pago" element={<PagoPage />} />
+        <Route path="/Detalle" element={<DetalleCompraPage />} />
       </Routes>
     </Router>
   );
