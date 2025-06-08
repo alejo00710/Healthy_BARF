@@ -5,6 +5,9 @@ import RegisterPage from './pages/RegisterPage';
 import ProfilePage from './pages/ProfilePage';
 import FavoritePage from './pages/FavoritePage';
 import TerminosPage from './pages/TerminosPage';
+import EntregaPage from './pages/EntregaPage';
+import PagoPage from './pages/PagoPage';
+import DetalleCompraPage from './pages/DetalleCompra';
 
 function App() {
   return (
@@ -16,6 +19,9 @@ function App() {
         <Route path="/editProfile" element={<ProfilePage />} />
         <Route path="/favorite" element={<FavoritePage />} />
         <Route path="/terminos" element={<TerminosPage />} />
+        <Route path="/Entrega" element={<EntregaPage />} />
+        <Route path="/Pago" element={<PagoPage />} />
+        <Route path="/Detalle" element={<DetalleCompraPage />} />
       </Routes>
     </Router>
   );
