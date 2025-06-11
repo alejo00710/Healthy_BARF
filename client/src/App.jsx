@@ -6,7 +6,7 @@ import ProfilePage from './pages/ProfilePage';
 import FavoritePage from './pages/FavoritePage';
 import TerminosPage from './pages/TerminosPage';
 import ProductPage from './pages/ProductPage';
-import CatalogoProducts from "./components/product/CatalogoProducts";
+import CatalogoPage from "./pages/CatalogoPage";
 import CartPage from './pages/CartPage';
 import CartWithPage from "./pages/CartWithPage";
 import PersonalDataPage from "./pages/PersonalDataPage";
@@ -27,7 +27,7 @@ function App() {
         <Route path="/terminos" element={<TerminosPage />} />
         <Route path="/ProductInfo" element={<ProductPage />} />
         <Route path="/product/:id" element={<ProductPage />} />
-        <Route path="/catalogo" element={<CatalogoProducts />} />
+        <Route path="/catalogo" element={<CatalogoPage />} />
         <Route path="/carrito" element={<CartPage />} />
         <Route path="/carritoProduct" element={<CartWithPage />} />
         <Route path="/datos" element={<PersonalDataPage />} />
