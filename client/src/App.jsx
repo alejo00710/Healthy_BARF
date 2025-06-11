@@ -10,7 +10,7 @@ import CatalogoProducts from "./components/product/CatalogoProducts";
 import CartPage from './pages/CartPage';
 import CartWithPage from "./pages/CartWithPage";
 import PersonalDataPage from "./pages/PersonalDataPage";
-
+import AdminPage from './pages/AdminPage';
 
 
 
@@ -30,7 +30,8 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/editProfile" element={<ProfilePage />} />
         <Route path="/favorite" element={<FavoritePage />} />
-        <Route path="/terminos" element={<TerminosPage />} />        
+        <Route path="/terminos" element={<TerminosPage />} />
+        <Route path="/admin" element={<AdminPage />} />        
       </Routes>
     </Router>
   );
