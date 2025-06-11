@@ -7,65 +7,69 @@ const productData = [
     {
         category: 'Perros',
         products: [
-            { id: 1, title: 'Dieta Pollo', price: '$3.500 • 500gr', img: pollo, alt: 'Dieta Pollo' },
-            { id: 2, title: 'Dieta Pollo', price: '$3.500 • 500gr', img: pollo, alt: 'Dieta Pollo' },
-            { id: 3, title: 'Dieta Pollo', price: '$3.500 • 500gr', img: pollo, alt: 'Dieta Pollo' },
-            { id: 4, title: 'Dieta Pollo', price: '$3.500 • 500gr', img: pollo, alt: 'Dieta Pollo' },
-            { id: 5, title: 'Dieta Pollo', price: '$3.500 • 500gr', img: pollo, alt: 'Dieta Pollo' },
-            { id: 6, title: 'Dieta Pollo', price: '$3.500 • 500gr', img: pollo, alt: 'Dieta Pollo' },
-            { id: 7, title: 'Dieta Pollo', price: '$3.500 • 500gr', img: pollo, alt: 'Dieta Pollo' },
-            { id: 8, title: 'Dieta Pollo', price: '$3.500 • 500gr', img: pollo, alt: 'Dieta Pollo' },
+            { id: 1, name: 'Dieta Pollo', price: '$3.500', weight: '500gr', description: 'Ideal para perros activos', image: pollo },
+            { id: 2, name: 'Dieta Pollo', price: '$3.500', weight: '500gr', description: 'Ideal para perros activos', image: pollo },
+            { id: 3, name: 'Dieta Pollo', price: '$3.500', weight: '500gr', description: 'Ideal para perros activos', image: pollo },
+            { id: 4, name: 'Dieta Pollo', price: '$3.500', weight: '500gr', description: 'Ideal para perros activos', image: pollo },
+            { id: 5, name: 'Dieta Pollo', price: '$3.500', weight: '500gr', description: 'Ideal para perros activos', image: pollo },
+            { id: 6, name: 'Dieta Pollo', price: '$3.500', weight: '500gr', description: 'Ideal para perros activos', image: pollo },
+            { id: 7, name: 'Dieta Pollo', price: '$3.500', weight: '500gr', description: 'Ideal para perros activos', image: pollo },
+            { id: 8, name: 'Dieta Pollo', price: '$3.500', weight: '500gr', description: 'Ideal para perros activos', image: pollo },
         ],
     },
     {
         category: 'Gatos',
         products: [
-            { id: 9, title: 'Dieta Pollo', price: '$3.500 • 500gr', img: pollo, alt: 'Dieta Pollo' },
-            { id: 10, title: 'Dieta Pollo', price: '$3.500 • 500gr', img: pollo, alt: 'Dieta Pollo' },
-            { id: 11, title: 'Dieta Pollo', price: '$3.500 • 500gr', img: pollo, alt: 'Dieta Pollo' },
-            { id: 12, title: 'Dieta Pollo', price: '$3.500 • 500gr', img: pollo, alt: 'Dieta Pollo' },
-            { id: 13, title: 'Dieta Pollo', price: '$3.500 • 500gr', img: pollo, alt: 'Dieta Pollo' },
-            { id: 14, title: 'Dieta Pollo', price: '$3.500 • 500gr', img: pollo, alt: 'Dieta Pollo' },
-            { id: 15, title: 'Dieta Pollo', price: '$3.500 • 500gr', img: pollo, alt: 'Dieta Pollo' },
-            { id: 16, title: 'Dieta Pollo', price: '$3.500 • 500gr', img: pollo, alt: 'Dieta Pollo' },
+            { id: 9, name: 'Dieta Pollo', price: '$3.500', weight: '500gr', description: 'Nutrición para gatos sanos', image: pollo },
+            { id: 10, name: 'Dieta Pollo', price: '$3.500', weight: '500gr', description: 'Nutrición para gatos sanos', image: pollo },
+            { id: 11, name: 'Dieta Pollo', price: '$3.500', weight: '500gr', description: 'Nutrición para gatos sanos', image: pollo },
+            { id: 12, name: 'Dieta Pollo', price: '$3.500', weight: '500gr', description: 'Nutrición para gatos sanos', image: pollo },
+            { id: 13, name: 'Dieta Pollo', price: '$3.500', weight: '500gr', description: 'Ideal para perros activos', image: pollo },
+            { id: 14, name: 'Dieta Pollo', price: '$3.500', weight: '500gr', description: 'Ideal para perros activos', image: pollo },
+            { id: 15, name: 'Dieta Pollo', price: '$3.500', weight: '500gr', description: 'Ideal para perros activos', image: pollo },
+            { id: 16, name: 'Dieta Pollo', price: '$3.500', weight: '500gr', description: 'Ideal para perros activos', image: pollo },
         ],
     },
 ];
 
-const Products = () => {
+const CatalogoProducts = () => {
     return (
-        <section className={styles.perros}>
-            {/* Botón de volver igual que en ProductInfo */}
+        <section className={styles.catalogo}>
             <Link to="/" className={styles.backLink}>‹ Volver</Link>
-
-            <h1 className={styles.mainTitle}>Frescura y nutrición en cada bocado</h1>
-            <h2 className={styles.subTitle}>Consiente a tu peludo de la manera más sana</h2>
+            <h1 className={styles.productsHeader}>Frescura y nutrición en cada bocado</h1>
+            <p className={styles.productsDescription}>Consiente a tu peludo de la manera más sana con nuestras dietas BARF.</p>
 
             <h3 className={styles.sectionTitle}>Alimentos BARF</h3>
 
             {productData.map(({ category, products }) => (
                 <div key={category}>
                     <h3 className={styles.categoryTitle}>{category}</h3>
-                    {[...Array(Math.ceil(products.length / 4))].map((_, gridIndex) => {
-                        const start = gridIndex * 4;
-                        const gridItems = products.slice(start, start + 4);
-                        return (
-                            <div className={styles.grid} key={`${category}-grid-${gridIndex}`}>
-                                {gridItems.map(({ id, title, price, img, alt }) => (
-                                    <div className={styles.card} key={id}>
-                                        <img src={img} alt={alt} />
-                                        <div className={styles.cardTitle}>{title}</div>
-                                        <div className={styles.cardPrice}>{price}</div>
+                    <div className={styles.productsGrid}>
+                        {products.map((product) => (
+                            <Link to={`/product/${product.id}`} className={styles.productCard} key={product.id}>
+                                <div
+                                    className={styles.productImage}
+                                    style={{ backgroundImage: `url(${product.image})` }}
+                                ></div>
+                                <div className={styles.productInfo}>
+                                    <h3>{product.name}</h3>
+                                    <p className={styles.price}>{product.price} <span>* {product.weight}</span></p>
+                                </div>
+                                <div className={styles.productOverlay}>
+                                    <p className={styles.overlayDescription}>{product.description}</p>
+                                    <div className={styles.productIcons}>
+                                        <button className={styles.iconBtn}>🛒</button>
+                                        <button className={styles.iconBtn}>❤️</button>
                                     </div>
-                                ))}
-                            </div>
-                        );
-                    })}
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
                 </div>
             ))}
         </section>
     );
 };
 
-export default Products;
+export default CatalogoProducts;
 
