@@ -4,20 +4,17 @@ import logo from '../../assets/images/Healthy Barf icono sin fondo a color.png';
 import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
-
     const navigate = useNavigate();
 
-    const handleBack = () => {
-        navigate(-1);
+    const handleClose = () => {
+        navigate('/');
     };
 
     return (
         <div className={styles.container}>
-            <div className={styles.headerBackButton}>
-                <button onClick={handleBack} className={styles.backButton}>
-                    &lt; Volver
-                </button>
-            </div>
+            <button onClick={handleClose} className={styles.closeButton} aria-label="Cerrar">
+                &times;
+            </button>
             <div className={styles.logo}>
                 <img src={logo} alt="Logo Healthy Barf" />
             </div>
@@ -31,4 +28,5 @@ const Cart = () => {
 };
 
 export default Cart;
+
 

@@ -42,19 +42,17 @@ export default function PaymentView() {
 
     return (
         <div className={styles.containerPayment}>
-
+            <div className={styles.headerBackButton}>
+                <button onClick={handleBack} className={styles.backButton}>
+                    &lt; Volver
+                </button>
+            </div>
             <div className={styles.profileHeader}>
                 <img
                     src={headerImage}
                     alt="Healthy Barf"
                     className={styles.headerImage}
                 />
-            </div>
-
-            <div className={styles.headerBackButton}>
-                <button onClick={handleBack} className={styles.backButton}>
-                    &lt; Volver
-                </button>
             </div>
 
             <div className={styles.wrapper}>

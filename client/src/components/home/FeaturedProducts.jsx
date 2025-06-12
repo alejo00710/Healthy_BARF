@@ -12,6 +12,7 @@ const FeaturedProducts = () => {
     <section className={styles.featuredProducts}>
       <div className="container">
         <div className={styles.productsHeader}>
+          <br />
           <h2>Productos destacados</h2>
           <p className={styles.productsDescription}>
             Ingredientes libres de conservantes y aditivos...
@@ -32,8 +33,8 @@ const FeaturedProducts = () => {
               <div className={styles.productOverlay}>
                 <p className={styles.overlayDescription}>{product.description}</p>
                 <div className={styles.productIcons}>
-                  <button className={styles.iconBtn}> 🛒</button>
-                  <button className={styles.iconBtn}>❤️</button>
+                  <Link to="/carritoProduct" className={styles.iconBtn}>🛒</Link>
+                  <Link to="/favorite" className={styles.iconBtn}>❤️</Link>
                 </div>
               </div>
             </Link>
