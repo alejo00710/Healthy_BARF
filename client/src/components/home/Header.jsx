@@ -32,7 +32,7 @@ const Header = () => {
               <li><a href="#">Nosotros</a></li>
             </ul>
             <div className={styles.navIcons}>
-              <a href="#"><img src={carrito} alt="Carrito" /></a> 
+              <Link to="/carrito"><img src={carrito} alt="Carrito" /></Link>
               {userEmail ? (
                 <div className={styles.userMenu}>
                   <span>👤 {userEmail}</span>
@@ -41,7 +41,7 @@ const Header = () => {
               ) : (
                 <Link to="/Entrega"><img src={usuario} alt="Usuario" /></Link>
               )}
-              <Link to="/favorite"><img src={favorito} alt="Favorito" /></Link> 
+              <Link to="/favorite"><img src={favorito} alt="Favorito" /></Link>
             </div>
           </nav>
         </div>

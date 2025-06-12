@@ -1,13 +1,22 @@
 import React from 'react';
 import styles from '../../styles/personalData/PersonalData.module.css';
+import { useNavigate } from 'react-router-dom';
 import logo from '../../assets/images/logo.png'; // Asegúrate de que la ruta sea correcta
 
 const PersonalData = () => {
+    const navigate = useNavigate();
+
+    const handleBack = () => {
+        navigate(-1);
+    };
+
+
     return (
         <div className={styles.container}>
-            <a href="/">
-                <div className={styles.volver}>&lt; Volver</div>
-            </a>
+
+            <button onClick={handleBack} className={styles.backButton}>
+                &lt; Volver
+            </button>
 
             <img className={styles.logo} src={logo} alt="Healthy BARF logo" />
 
@@ -24,9 +33,10 @@ const PersonalData = () => {
                 <input className={styles.campo} type="text" placeholder="Cédula de ciudadanía" />
                 <input className={styles.campo} type="tel" placeholder="Teléfono" />
                 <input className={styles.campo} type="email" placeholder="Correo Electrónico" />
-                <button className={styles.btnSiguiente}>Ir a método de entrega</button>
+                <button className={styles.btnSiguiente} onClick={() => navigate('/Entrega')}>
+                    Ir a método de entrega
+                </button>
             </div>
-
             <div className={styles.resumen}>
                 <h3>Resumen de la compra</h3>
                 <p>
