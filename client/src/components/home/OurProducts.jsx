@@ -11,7 +11,7 @@ const OurProducts = () => {
       className={styles.ourProducts}
       style={{ backgroundImage: `url(${bgImage})` }}
     >
-      <div className="container">
+      <div className="container">  
         <h2 className={styles.sectionTitle1}>Nuestros Productos</h2>
         <div className={styles.productsGrid1}>
           <Link to="/catalogo">

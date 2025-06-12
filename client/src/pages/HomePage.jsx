@@ -7,8 +7,6 @@ import Footer from '../components/home/Footer';
 import AboutUs from '../components/home/aboutUs';
 import OurProducts from '../components/home/OurProducts';
 import Testimonials from '../components/home/Testimonials';
-import Feedback from '../components/home/Feedback';
-import Newsletter from '../components/home/Newsletter';
 import '../styles/home/home.css';
 
 function HomePage() {
@@ -21,8 +19,6 @@ function HomePage() {
       <AboutUs/>
       <OurProducts/>
       <Testimonials/>
-      <Feedback/>
-      <Newsletter/>
       <Footer />
     </div>  
   );
