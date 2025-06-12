@@ -1,33 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../../styles/product/CatalogoProducts.module.css';
-import pollo from '../../assets/images/pd1.jpg';
+import pescado from '../../assets/images/Pescado Premium.jpg';
+import pollo from '../../assets/images/pollo y verduras.jpg';
+import pollo2 from '../../assets/images/pollo y frutas.jpg';
+import res from '../../assets/images/res y verduras.jpg';
+import ternera from '../../assets/images/ternera y cordero.jpg';
+import horneadito from '../../assets/images/horneadito.jpg';
 
 const productData = [
     {
         category: 'Perros',
         products: [
-            { id: 1, name: 'Dieta Pollo', price: '$3.500', weight: '500gr', description: 'Ideal para perros activos', image: pollo },
-            { id: 2, name: 'Dieta Pollo', price: '$3.500', weight: '500gr', description: 'Ideal para perros activos', image: pollo },
-            { id: 3, name: 'Dieta Pollo', price: '$3.500', weight: '500gr', description: 'Ideal para perros activos', image: pollo },
-            { id: 4, name: 'Dieta Pollo', price: '$3.500', weight: '500gr', description: 'Ideal para perros activos', image: pollo },
-            { id: 5, name: 'Dieta Pollo', price: '$3.500', weight: '500gr', description: 'Ideal para perros activos', image: pollo },
-            { id: 6, name: 'Dieta Pollo', price: '$3.500', weight: '500gr', description: 'Ideal para perros activos', image: pollo },
-            { id: 7, name: 'Dieta Pollo', price: '$3.500', weight: '500gr', description: 'Ideal para perros activos', image: pollo },
-            { id: 8, name: 'Dieta Pollo', price: '$3.500', weight: '500gr', description: 'Ideal para perros activos', image: pollo },
+            { id: 1, name: 'Dieta Pollo y verduras', price: '$2.300', weight: '200gr', description: 'Conoce más acerca de este producto...', image: pollo },
+            { id: 2, name: 'Dieta Pollo y verduras', price: '$5.200', weight: '500gr', description: 'Conoce más acerca de este producto...', image: pollo },
+            { id: 3, name: 'Dieta Pollo y frutas', price: '$5.700', weight: '400gr', description: 'Conoce más acerca de este producto...', image: pollo2 },
+            { id: 4, name: 'Dieta Ternera y cordero Premium', price: '$7.200', weight: '400gr', description: 'Conoce más acerca de este producto...', image: ternera },
+            { id: 5, name: 'Dieta Res y verduras', price: '$6.200', weight: '400gr', description: 'Conoce más acerca de este producto...', image: res },
+            { id: 6, name: 'Horneadito Premium', price: '$8.000', weight: '500gr', description: 'Conoce más acerca de este producto...', image: horneadito },
         ],
     },
     {
         category: 'Gatos',
         products: [
-            { id: 9, name: 'Dieta Pollo', price: '$3.500', weight: '500gr', description: 'Nutrición para gatos sanos', image: pollo },
-            { id: 10, name: 'Dieta Pollo', price: '$3.500', weight: '500gr', description: 'Nutrición para gatos sanos', image: pollo },
-            { id: 11, name: 'Dieta Pollo', price: '$3.500', weight: '500gr', description: 'Nutrición para gatos sanos', image: pollo },
-            { id: 12, name: 'Dieta Pollo', price: '$3.500', weight: '500gr', description: 'Nutrición para gatos sanos', image: pollo },
-            { id: 13, name: 'Dieta Pollo', price: '$3.500', weight: '500gr', description: 'Ideal para perros activos', image: pollo },
-            { id: 14, name: 'Dieta Pollo', price: '$3.500', weight: '500gr', description: 'Ideal para perros activos', image: pollo },
-            { id: 15, name: 'Dieta Pollo', price: '$3.500', weight: '500gr', description: 'Ideal para perros activos', image: pollo },
-            { id: 16, name: 'Dieta Pollo', price: '$3.500', weight: '500gr', description: 'Ideal para perros activos', image: pollo },
+            { id: 9, name: 'Pescado Premium', price: '$4.700', weight: '200gr', description: 'Conoce más acerca de este producto...', image: pescado },
         ],
     },
 ];

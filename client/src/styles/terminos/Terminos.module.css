@@ -53,3 +53,59 @@
 .botonAceptar:hover {
   background-color: #0b7f7f;
 }
+
+/* ========================= */
+/*     Responsive Styles     */
+/* ========================= */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .terminosContainer {
+    padding: 20px;
+    margin: 30px 20px;
+  }
+
+  .terminosContainer h1 {
+    font-size: 22px;
+  }
+
+  .terminosContainer h2 {
+    font-size: 17px;
+  }
+
+  .terminosContainer p {
+    font-size: 13.5px;
+  }
+
+  .botonAceptar {
+    font-size: 15px;
+    padding: 10px 18px;
+  }
+}
+
+/* Móviles */
+@media (max-width: 480px) {
+  .terminosContainer {
+    padding: 15px;
+    margin: 20px 10px;
+    max-height: 85vh;
+  }
+
+  .terminosContainer h1 {
+    font-size: 20px;
+  }
+
+  .terminosContainer h2 {
+    font-size: 16px;
+  }
+
+  .terminosContainer p {
+    font-size: 13px;
+  }
+
+  .botonAceptar {
+    font-size: 14px;
+    width: 100%;
+    padding: 10px;
+  }
+}

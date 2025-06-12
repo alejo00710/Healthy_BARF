@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../../styles/product/ProductInfo.module.css'; // Crea este archivo si no existe
-import productImage from '../../assets/images/pd1.jpg'; // Asegúrate de tener esta imagen
+import productImage from '../../assets/images/Pescado Premium.jpg'; // Asegúrate de tener esta imagen
 import { useParams } from 'react-router-dom';
 import { products } from '../../data/products';
 

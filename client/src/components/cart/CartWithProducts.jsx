@@ -1,8 +1,7 @@
 import React from 'react';
 import styles from '../../styles/cart/CartWithProducts.module.css';
 import logo from '../../assets/images/logo.png'; // Asegúrate de tener esta imagen en tu carpeta
-
-import pd1 from '../../assets/images/pd1.jpg'; // Imagen de producto
+import pd1 from '../../assets/images/Pescado Premium.jpg'; // Imagen de producto
 
 const CartWithProducts = () => {
     return (

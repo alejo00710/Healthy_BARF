@@ -121,3 +121,78 @@
     font-weight: bold;
     font-size: 16px;
 }
+
+/* ========================= */
+/* Responsive: tablets       */
+/* ========================= */
+@media (max-width: 768px) {
+    .headerImage {
+        width: 160px;
+        height: 160px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .paymentButton {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+
+    .summaryCard {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .tabTitle {
+        font-size: 15px;
+        text-align: center;
+    }
+
+    .header {
+        margin-bottom: 20px;
+    }
+}
+
+/* ========================= */
+/* Responsive: móviles       */
+/* ========================= */
+@media (max-width: 480px) {
+    .headerImage {
+        width: 120px;
+        height: 120px;
+    }
+
+    .paymentButton {
+        width: 100%;
+        font-size: 15px;
+    }
+
+    .summaryCard {
+        width: 100%;
+        padding: 16px;
+    }
+
+    .summaryRow,
+    .summaryTotal {
+        font-size: 14px;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .tabTitle {
+        font-size: 14px;
+    }
+
+    .formGroup input {
+        font-size: 15px;
+    }
+
+    .backButton {
+        font-size: 14px;
+        display: block;
+        text-align: center;
+        margin: 0 auto;
+    }
+}
