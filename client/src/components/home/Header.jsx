@@ -30,7 +30,7 @@ const Header = () => {
               <li><a href="#nosotros">Nosotros</a></li>
             </ul>
 
-            <div className={styles.navIcons}>
+            <div className={styles.navIcons}> 
               <Link to="/carrito"><img src={carrito} alt="carrito" /></Link>
               {userEmail ? (
                 <div className={styles.userMenu}>

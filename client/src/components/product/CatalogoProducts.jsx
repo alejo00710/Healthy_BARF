@@ -58,7 +58,7 @@ const CatalogoProducts = () => {
                                 <div className={styles.productOverlay}>
                                     <p className={styles.overlayDescription}>{product.description}</p>
                                     <div className={styles.productIcons}>
-                                        <button className={styles.iconBtn}>🛒</button>
+                                        <Link to="/carritoProduct" className={styles.iconBtn}>🛒</Link>
                                         <button className={styles.iconBtn}>❤️</button>
                                     </div>
                                 </div>
