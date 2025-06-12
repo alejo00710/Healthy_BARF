@@ -1,7 +1,10 @@
 .containerDetalle {
-    min-height: 100vh;
-    background-color: #f3f4f6;
-    padding: 1.5rem;
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f6f6f6;
+    padding: 40px 20px;
+    text-align: center;
+    box-sizing: border-box;
 }
 
 .wrapper {
@@ -13,17 +16,22 @@
     width: 200px;
     height: 200px;
     object-fit: cover;
-    margin-left: 43%;
+    margin: 10px auto 30px;
+    /* antes: margin-left: 35%; */
+    display: block;
 }
 
 .backButton {
+    position: absolute;
+    top: 20px;
+    left: 20px;
     background: none;
     border: none;
     color: #333;
     font-size: 16px;
     cursor: pointer;
-    padding: 5px 0;
-    margin-left: 33%;
+    padding: 5px 10px;
+    text-align: left;
 }
 
 .backButton:hover {

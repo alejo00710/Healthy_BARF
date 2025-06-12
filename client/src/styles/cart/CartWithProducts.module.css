@@ -1,8 +1,9 @@
 .cartContainer {
+    position: relative;
+    /* Añade esto si no está */
     font-family: 'Roboto', sans-serif;
     background-color: #f6f6f6;
     padding: 40px 20px;
-    
     text-align: center;
     box-sizing: border-box;
 }
@@ -11,6 +12,24 @@
 .logo {
     max-width: 200px;
     margin: 0 auto 30px;
+}
+
+.backButton {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 5px 10px;
+    text-align: left;
+}
+
+.backButton:hover {
+    color: #000;
+    text-decoration: underline;
 }
 
 /* Tabla */

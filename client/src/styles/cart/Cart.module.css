@@ -104,3 +104,21 @@
         border-radius: 16px;
     }
 }
+
+.closeButton {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    font-weight: bold;
+    color: #666;
+    cursor: pointer;
+    z-index: 10;
+    transition: color 0.3s;
+}
+
+.closeButton:hover {
+    color: #000;
+}

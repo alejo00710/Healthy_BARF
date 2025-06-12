@@ -1,182 +1,157 @@
 .header {
-    background: #11BFBF;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  background: #11BFBF;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .topBar {
-    background: #F2BC8D; 
-    padding: 0px 0;
-    text-align: center;
+  background: #F2BC8D;
+  padding: 0;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
 }
 
 .slogan {
-    color: #2b2b2b;
-    font-weight: 600;
-    margin: 0;
-    font-size: 14px;
+  color: #2b2b2b;
+  font-weight: 600;
+  margin: 0;
+  font-size: 14px;
 }
 
 .mainNav {
-    padding: 10px 0;
+  padding: 4px 0;
 }
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navLinks {
-    display: flex;
-    gap: 25px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  gap: 40px;
+  list-style: none;
+  padding: 0;
+  margin: 0 20px;
 }
 
 .navLinks a {
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 16px;
-    transition: color 0.3s;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  transition: color 0.3s;
 }
 
 .navLinks a:hover {
-    color: #F2BC8D
+  color: #F2BC8D;
 }
 
-.navIcons  {
+.navIcons {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 50px;
+  justify-content: center;
 }
 
-.navIcons img  {
-  width: 20px; 
-  cursor: pointer; 
-}
-
-
-.navIcons a, .navIcons Link {
-  color: #333; 
-  text-decoration: none; 
+.navIcons a,
+.navIcons Link {
+  color: #ffffff; /* íconos ahora blancos */
+  text-decoration: none;
   display: flex;
   align-items: center;
 }
 
+.navIcons img {
+  width: 20px;
+  cursor: pointer;
+  filter: brightness(0) invert(1); /* iconos blancos sin cambiar imagen */
+}
 
-/* Logo placeholder */
 .logoPlaceholder {
-    margin-right: 30px;
+  margin-right: 40px;
 }
 
 .logoImg {
-    height: 60px; 
-    width: auto;
-    display: block;
+  height: 90px;
+  width: auto;
+  display: block;
 }
 
-/* Estructura mejorada */
-.navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+/* Orden específico para los íconos */
+.navIcons a:nth-child(1) {
+  order: 2;
 }
-
-.navLinks {
-    flex-grow: 1; 
-    justify-content: center;
-    margin: 0 20px;
+.navIcons a:nth-child(2) {
+  order: 1;
 }
-
-/* Ajuste específico para el orden de iconos */
-.navIcons a:nth-child(1) { 
-    order: 2;
+.navIcons a:nth-child(3) {
+  order: 3;
 }
-.navIcons a:nth-child(2) {   
-    order: 1;
-}
-.navIcons a:nth-child(3) { 
-    order: 3;
-}
-
 
 /* ===================== MEDIA QUERIES ===================== */
 
 /* Tablets y laptops medianas */
 @media (min-width: 769px) and (max-width: 1024px) {
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  .navLinks {
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 10px 0;
+  }
 }
-  
+
+/* Tablets verticales y móviles grandes */
+@media (min-width: 481px) and (max-width: 768px) {
+  .logoImg {
+    height: 35px;
+  }
+
   .navLinks a {
-      flex-wrap: wrap;
-      gap: 15px;
-      margin: 10px 0;
-    }
-  
-    .navIcons a {
-      display: flex;
-      align-items: center;
-    }
-  
+    font-size: 14px;
   }
-  
-  /* Tablets verticales y móviles grandes */
-  @media (min-width: 481px) and (max-width: 768px) {
-    .logoImg {
-      height: 35px;
-    }
-  
-    .navLinks a {
-      font-size: 14px;
-    }
-  
-    .navIcons a {
-      font-size: 18px;
-      display: flex;
-      align-items: center;
-    }
-  
-    .slogan {
-      font-size: 13px;
-    }
+
+  .navIcons a {
+    font-size: 18px;
   }
-  
-  /* Móviles pequeños */
-  @media (max-width: 480px) {
-    .navbar {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .navLinks {
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
-  
-    .navIcons {
-      justify-content: center;
-      gap: 10px;
-    }
-  
-  
-    .logoImg {
-      height: 40px;
-      margin-left: 30px;
-    }
-  
-    .slogan {
-      font-size: 12px;
-    }
-  
-    .navLinks a {
-      font-size: 13px;
-    }
+
+  .slogan {
+    font-size: 13px;
   }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navLinks {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .navIcons {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .logoImg {
+    height: 40px;
+    margin-left: 30px;
+  }
+
+  .slogan {
+    font-size: 12px;
+  }
+
+  .navLinks a {
+    font-size: 13px;
+  }
+}
+
   
   
