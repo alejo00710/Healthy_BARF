@@ -56,8 +56,8 @@ const RelatedProducts = () => {
                         <div className={styles.productOverlay}>
                             <p className={styles.overlayDescription}>{product.description}</p>
                             <div className={styles.productIcons}>
-                                <button className={styles.iconBtn}>🛒</button>
-                                <button className={styles.iconBtn}>❤️</button>
+                                <Link to="/carritoProduct" className={styles.iconBtn}>🛒</Link>
+                                <Link to="/favorite" className={styles.iconBtn}>❤️</Link>                                
                             </div>
                         </div>
                     </Link>

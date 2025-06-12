@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import styles from '../../styles/home/Header.module.css';
-import logo from '../../assets/images/Healthy Barf icono sin fondo-13.png';
+import logo from '../../assets/images/Healthy Barf icono sin fondo-14.png';
 import carrito from '../../assets/icons/carrito-de-compras.svg';
 import usuario from '../../assets/icons/usuario.svg';
 import favorito from '../../assets/icons/corazon.svg';
@@ -16,7 +16,7 @@ const Header = () => {
     <header className={styles.header}>
       <div className={styles.topBar}>
         <div className="container">
-          <p className={styles.slogan}>Salud y vitalidad en cada bocado</p>
+          <p className={styles.slogan}>¡Salud y vitalidad en cada bocado!</p>
         </div>
       </div>
       <div className={styles.mainNav}>
@@ -28,6 +28,7 @@ const Header = () => {
             <ul className={styles.navLinks}>
               <li><Link to="/">Inicio</Link></li>
               <li><a href="#nosotros">Nosotros</a></li>
+              <li><Link to="/catalogo">Productos</Link></li>
             </ul>
 
             <div className={styles.navIcons}> 

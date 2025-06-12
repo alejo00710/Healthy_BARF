@@ -35,6 +35,11 @@ export default function OrderDetailsView() {
 
     return (
         <div className={styles.containerDetalle}>
+            <div className={styles.headerBackButton}>
+                <button onClick={handleBack} className={styles.backButton}>
+                    &lt; Volver
+                </button>
+            </div>
             <div className={styles.profileHeader}>
                 <img
                     src={headerImage}

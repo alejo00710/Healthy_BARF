@@ -22,6 +22,11 @@ const MetodoEntrega = () => {
 
     return (
         <div className={styles.containerEntrega}>
+            <div className={styles.headerBackButton}>
+                <button onClick={handleBack} className={styles.backButton}>
+                    &lt; Volver
+                </button>
+            </div>
             <div className={styles.profileHeader}>
                 <img
                     src={headerImage}
@@ -29,13 +34,7 @@ const MetodoEntrega = () => {
                     className={styles.headerImage}
                 />
             </div>
-
-            <div className={styles.headerBackButton}>
-                <button onClick={handleBack} className={styles.backButton}>
-                    &lt; Volver
-                </button>
-            </div>
-
+            
             <h2 className={styles.title}>Método de entrega</h2>
 
             {/* Menú deslizante */}

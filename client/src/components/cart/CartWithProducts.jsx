@@ -2,10 +2,20 @@ import React from 'react';
 import styles from '../../styles/cart/CartWithProducts.module.css';
 import logo from '../../assets/images/logo.png'; // Asegúrate de tener esta imagen en tu carpeta
 import pd1 from '../../assets/images/Pescado Premium.jpg'; // Imagen de producto
+import { useNavigate } from 'react-router-dom';
 
 const CartWithProducts = () => {
+    const navigate = useNavigate();
+
+    const handleBack = () => {
+        navigate(-1);
+    }
     return (
+        
         <div className={styles.cartContainer}>
+            <button onClick={handleBack} className={styles.backButton}>
+                                        &lt; Volver
+                                    </button>
             <img className={styles.logo} src={logo} alt="Healthy BARF logo" />
 
             <table className={styles.table}>
