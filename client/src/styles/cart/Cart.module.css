@@ -12,6 +12,20 @@
     box-sizing: border-box;
 }
 
+
+.backButton {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 5px 0;
+}
+
+.backButton:hover {
+    color: #000;
+    text-decoration: underline;
+}
 /* Logo */
 .logo img {
     max-width: 200px;

@@ -3,7 +3,7 @@ import styles from '../../styles/home/AboutUs.module.css';
 
 const AboutUs = () => {
   return (
-    <section className={styles.aboutUs}>
+    <section id="nosotros" className={styles.aboutUs}>
       <div className="container">
         <h2 className={styles.sectionTitle}>¿Quiénes somos?</h2>
         <div className={styles.aboutContent}>

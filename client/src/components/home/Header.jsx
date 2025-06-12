@@ -26,22 +26,21 @@ const Header = () => {
               <img src={logo} alt="Healthy BARF" className={styles.logoImg} />
             </div>
             <ul className={styles.navLinks}>
-              <li><a href="#">Inicio</a></li>
-              <li><a href="#">Perros</a></li>
-              <li><a href="#">Gatos</a></li>
-              <li><a href="#">Nosotros</a></li>
+              <li><Link to="/">Inicio</Link></li>
+              <li><a href="#nosotros">Nosotros</a></li>
             </ul>
+
             <div className={styles.navIcons}>
-              <a href="#"><img src={carrito} alt="Carrito" /></a> 
+              <Link to="/carrito"><img src={carrito} alt="carrito" /></Link>
               {userEmail ? (
                 <div className={styles.userMenu}>
                   <span>👤 {userEmail}</span>
                   <button onClick={logout}>Cerrar sesión</button>
                 </div>
               ) : (
-                <Link to="/Entrega"><img src={usuario} alt="Usuario" /></Link>
+                <Link to="/Login"><img src={usuario} alt="Usuario" /></Link>
               )}
-              <Link to="/favorite"><img src={favorito} alt="Favorito" /></Link> 
+              <Link to="/favorite"><img src={favorito} alt="Favorito" /></Link>
             </div>
           </nav>
         </div>
