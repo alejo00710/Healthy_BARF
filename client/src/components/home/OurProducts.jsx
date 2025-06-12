@@ -24,9 +24,6 @@ const OurProducts = () => {
             </div>
           </Link>
         </div>
-        <div className={styles.viewAllContainer}>
-          <a href="#" className={styles.viewAllBtn}>VER TODO</a>
-        </div>
       </div>
     </section>
   );

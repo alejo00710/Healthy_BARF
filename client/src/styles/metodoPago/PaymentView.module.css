@@ -212,18 +212,80 @@
     color: rgba(255, 255, 255, 0.8);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* =============== */
+/* Responsive Zone */
+/* =============== */
+
+/* Tablets */
+@media (max-width: 1024px) {
     .wrapper {
         flex-direction: column;
-        gap: 1rem;
+        gap: 2rem;
     }
 
     .summarySection {
         width: 100%;
     }
 
+    .headerImage {
+        margin: 0 auto;
+        display: block;
+    }
+
+    .backButton {
+        margin-left: 0;
+        display: block;
+        text-align: center;
+    }
+}
+
+/* Móviles */
+@media (max-width: 480px) {
     .containerPayment {
         padding: 1rem;
+    }
+
+    .headerImage {
+        width: 140px;
+        height: 140px;
+    }
+
+    .paymentButton {
+        font-size: 0.95rem;
+    }
+
+    .summaryCard {
+        padding: 1rem;
+    }
+
+    .summaryItem,
+    .summaryTotal {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+    .payButton {
+        font-size: 0.95rem;
+    }
+
+    .paymentDetails {
+        padding: 1rem;
+    }
+
+    .qrCode {
+        width: 9rem;
+        height: 9rem;
+    }
+
+    .paymentDetailsTitle,
+    .summaryTitle {
+        font-size: 1.1rem;
+    }
+
+    .qrText,
+    .mercadopagoText,
+    .mercadopagoInfoText {
+        font-size: 0.85rem;
     }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../../styles/product/RelatedProducts.module.css';
-import sampleImage from '../../assets/images/pd1.jpg'; // Reemplázalo con tus imágenes reales
+import sampleImage from '../../assets/images/Pescado Premium.jpg'; // Reemplázalo con tus imágenes reales
 
 const relatedProducts = [
     {

@@ -133,6 +133,9 @@ h2 {
     font-size: 16px;
 }
 
+/* ========================= */
+/* Responsive: tablets       */
+/* ========================= */
 @media (max-width: 768px) {
     .containerEntrega {
         padding: 10px;
@@ -145,21 +148,57 @@ h2 {
         display: block;
     }
 
+    .paymentButton {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+
+    .summaryCard {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 16px;
+    }
+
+    .tabTitle {
+        font-size: 15px;
+        text-align: center;
+    }
+
+    .header {
+        margin-bottom: 20px;
+    }
+
     .backButton {
         left: 10px;
         top: 10px;
         font-size: 14px;
     }
+}
+
+/* ========================= */
+/* Responsive: móviles       */
+/* ========================= */
+@media (max-width: 480px) {
+    .headerImage {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 20px;
+        display: block;
+    }
 
     .paymentButton {
         width: 100%;
+        font-size: 15px;
         margin: 20px auto 0;
+        display: block;
     }
 
     .summaryCard {
         width: 100%;
+        padding: 16px;
         margin: 20px 0 0;
-        padding: 15px;
     }
 
     .summaryCard h3 {
@@ -169,5 +208,23 @@ h2 {
     .summaryRow,
     .summaryTotal {
         font-size: 14px;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .tabTitle {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .formGroup input {
+        font-size: 15px;
+    }
+
+    .backButton {
+        font-size: 14px;
+        display: block;
+        text-align: center;
+        margin: 0 auto;
     }
 }
