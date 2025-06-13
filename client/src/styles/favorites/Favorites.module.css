@@ -144,6 +144,32 @@
   filter: brightness(0.7);
 }
 
+.emptyFavorites {
+  text-align: center;
+  padding: 60px 20px;
+  color: #666;
+}
+
+.emptyFavorites p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.catalogoLink {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #ff6b6b;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.catalogoLink:hover {
+  background-color: #ff5252;
+}
+
 /* ===================== MEDIA QUERIES ===================== */
 
 /* Tablets y laptops medianas */

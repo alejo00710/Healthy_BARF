@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useFavorites } from '../../context/FavoritesContext';
 import styles from '../../styles/product/CatalogoProducts.module.css';
 import pescado from '../../assets/images/Pescado Premium.jpg';
 import pollo from '../../assets/images/pollo y verduras.jpg';
@@ -29,12 +31,26 @@ const productData = [
 ];
 
 const CatalogoProducts = () => {
+    const navigate = useNavigate();
+    const { toggleFavorite, isFavorite } = useFavorites();
+
+    const handleBack = () => {
+        navigate(-1);
+    };
+
+    const handleFavoriteClick = (e, product) => {
+        e.preventDefault(); 
+        e.stopPropagation(); 
+        toggleFavorite(product);
+    };
+
     return (
         <section className={styles.catalogo}>
-            <Link to="/" className={styles.backLink}>‹ Volver</Link>
+            <button onClick={handleBack} className={styles.backButton}>
+                &lt; Volver
+            </button>
             <h1 className={styles.productsHeader}>Frescura y nutrición en cada bocado</h1>
             <p className={styles.productsDescription}>Consiente a tu peludo de la manera más sana con nuestras dietas BARF.</p>
-
             <h3 className={styles.sectionTitle}>Alimentos BARF</h3>
 
             {productData.map(({ category, products }) => (
@@ -55,7 +71,12 @@ const CatalogoProducts = () => {
                                     <p className={styles.overlayDescription}>{product.description}</p>
                                     <div className={styles.productIcons}>
                                         <Link to="/carritoProduct" className={styles.iconBtn}>🛒</Link>
-                                        <Link to="/favorite" className={styles.iconBtn}>❤️</Link>
+                                        <button 
+                                            onClick={(e) => handleFavoriteClick(e, product)}
+                                            className={`${styles.iconBtn} ${isFavorite(product.id) ? styles.favoriteActive : ''}`}
+                                        >
+                                            {isFavorite(product.id) ? '❤️' : '🤍'}
+                                        </button>
                                     </div>
                                 </div>
                             </Link>
@@ -68,4 +89,3 @@ const CatalogoProducts = () => {
 };
 
 export default CatalogoProducts;
-

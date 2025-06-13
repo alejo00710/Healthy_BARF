@@ -1,46 +1,111 @@
-import React from 'react';
-import styles from '../../styles/product/ProductInfo.module.css'; // Crea este archivo si no existe
-import productImage from '../../assets/images/Pescado Premium.jpg'; // Asegúrate de tener esta imagen
-import { useParams } from 'react-router-dom';
+import React, { useState } from 'react';
+import styles from '../../styles/product/ProductInfo.module.css';
+import { useParams, useNavigate } from 'react-router-dom';
 import { products } from '../../data/products';
-
+import { useFavorites } from '../../context/FavoritesContext';
 
 const ProductInfo = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
+    const { toggleFavorite, isFavorite } = useFavorites();
+    const [quantity, setQuantity] = useState(1);
 
-    // Simular búsqueda del producto
-    const product = products.find(p => p.id === parseInt(id)); // `products` debe ser accesible
+    // Buscar el producto por ID
+    const product = products.find(p => p.id === parseInt(id));
 
-    if (!product) return <p>Producto no encontrado</p>;
+    const handleBack = () => {
+        navigate(-1);
+    };
+
+    const handleFavoriteClick = () => {
+        toggleFavorite(product);
+    };
+
+    const increaseQuantity = () => {
+        setQuantity(prev => prev + 1);
+    };
+
+    const decreaseQuantity = () => {
+        setQuantity(prev => prev > 1 ? prev - 1 : 1);
+    };
+
+    const handleQuantityChange = (e) => {
+        const value = parseInt(e.target.value);
+        if (value >= 1) {
+            setQuantity(value);
+        }
+    };
+
+    if (!product) {
+        return (
+            <div className={styles.container}>
+                <button onClick={handleBack} className={styles.backButton}>
+                    &lt; Volver
+                </button>
+                <p>Producto no encontrado</p>
+            </div>
+        );
+    }
+
     return (
         <div className={styles.container}>
-            <a href="/" className={styles.backLink}>‹Volver</a>
-
+            <button onClick={handleBack} className={styles.backButton}>
+                &lt; Volver
+            </button>
             <div className={styles.productWrapper}>
                 <div className={styles.productImage}>
-                    <img src={productImage} alt="Dieta Pollo" />
+                    <img src={product.image} alt={product.name} />
                 </div>
 
                 <div className={styles.productInfo}>
-                    <div className={styles.productTitle}>Dieta Pollo</div>
+                    <div className={styles.productTitle}>{product.name}</div>
                     <div className={styles.productPrice}>
-                        Unidad por 500gr<br /><strong>$3.500</strong>
+                        Unidad por {product.weight}<br />
+                        <strong>{product.price}</strong>
                     </div>
 
                     <div className={styles.btnGroup}>
-                        <button>- 1 +</button>
-                        <button>Añadir al carrito</button>
-                        <button className={styles.favoriteBtn}>Añadir a favoritos</button>
+                        <div className={styles.quantityControls}>
+                            <button 
+                                onClick={decreaseQuantity}
+                                className={styles.quantityBtn}
+                                disabled={quantity <= 1}
+                            >
+                                -
+                            </button>
+                            <input 
+                                type="number" 
+                                value={quantity}
+                                onChange={handleQuantityChange}
+                                className={styles.quantityInput}
+                                min="1"
+                            />
+                            <button 
+                                onClick={increaseQuantity}
+                                className={styles.quantityBtn}
+                            >
+                                +
+                            </button>
+                        </div>
+                        <button className={styles.addToCartBtn}>
+                            Añadir al carrito ({quantity})
+                        </button>
+                        <button 
+                            onClick={handleFavoriteClick}
+                            className={`${styles.favoriteBtn} ${isFavorite(product.id) ? styles.favoriteActive : ''}`}
+                        >
+                            {isFavorite(product.id) ? '❤️ Quitar de favoritos' : '🤍 Añadir a favoritos'}
+                        </button>
                     </div>
 
                     <h2 className={styles.productDesc}>
-                        A base de pollo, zanahoria, espinaca, remolacha, apio, banano, arveja, arroz. Alimento 100% natural
+                        {product.shortDescription || product.description}
                     </h2>
 
                     <p className={styles.descTitle}>Descripción</p>
                     <h2 className={styles.productDesc}>
-                        Es el mejor alimento que le puedes dar a tu mascota 🐶 Puedes estar completamente seguro porque contamos
-                        con la mejor calidad y cuidado para que tu peludo disfrute de un delicioso y sano alimento.
+                        {product.fullDescription ||
+                            "Es el mejor alimento que le puedes dar a tu mascota 🐶 Puedes estar completamente seguro porque contamos con la mejor calidad y cuidado para que tu peludo disfrute de un delicioso y sano alimento."}
                     </h2>
                 </div>
             </div>

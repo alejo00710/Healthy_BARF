@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { FavoritesProvider } from './context/FavoritesContext';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
@@ -14,10 +15,10 @@ import AdminPage from './pages/AdminPage';
 import EntregaPage from './pages/EntregaPage';
 import PagoPage from './pages/PagoPage';
 import DetalleCompraPage from './pages/DetalleCompra';
-import Nosotrospage from './pages/HomePage';
 
 function App() {
   return (
+    <FavoritesProvider>
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -36,9 +37,9 @@ function App() {
         <Route path="/Entrega" element={<EntregaPage />} />
         <Route path="/Pago" element={<PagoPage />} />
         <Route path="/Detalle" element={<DetalleCompraPage />} />
-        <Route path="/nosotros" element={<Nosotrospage />} />
       </Routes>
     </Router>
+    </FavoritesProvider>
   );
 }
 
