@@ -1,13 +1,19 @@
-.backLink {
-    text-decoration: none;
-    color: #555;
-    font-size: 14px;
-    margin: 20px 0 10px 20px;
-    display: inline-block;
-}
-
 .container {
     padding: 0 20px;
+}
+
+.backButton {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 5px 0;
+}
+
+.backButton:hover {
+    color: #000;
+    text-decoration: underline;
 }
 
 .productWrapper {
@@ -18,10 +24,127 @@
     margin: 20px 0;
 }
 
+
+.favoriteBtn {
+    padding: 12px 20px;
+    border: 2px solid #ff6b6b;
+    background-color: transparent;
+    color: #ff6b6b;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.favoriteBtn:hover {
+    background-color: #ff6b6b;
+    color: white;
+    transform: translateY(-1px);
+}
+
+.favoriteActive {
+    background-color: #ff6b6b !important;
+    color: white !important;
+    border-color: #ff6b6b !important;
+}
+
+.favoriteActive:hover {
+    background-color: #ff5252 !important;
+    border-color: #ff5252 !important;
+}
+
+/* Agregar a ProductInfo.module.css */
+
+/* Controles de cantidad */
+.quantityControls {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    width: fit-content;
+}
+
+.quantityBtn {
+    background-color: #f8f9fa;
+    border: none;
+    padding: 12px 16px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    transition: background-color 0.2s ease;
+    min-width: 44px;
+}
+
+.quantityBtn:hover:not(:disabled) {
+    background-color: #e9ecef;
+}
+
+.quantityBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.quantityInput {
+    border: none;
+    padding: 12px 8px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    width: 60px;
+    background-color: white;
+    /* Firefox */
+}
+
+.quantityInput::-webkit-outer-spin-button,
+.quantityInput::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.quantityInput:focus {
+    outline: none;
+    background-color: #f8f9fa;
+}
+
+/* Botón añadir al carrito */
+.addToCartBtn {
+    padding: 12px 24px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.addToCartBtn:hover {
+    background-color: #218838;
+    transform: translateY(-1px);
+}
+
+
+/* Grupo de botones */
+.btnGroup {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+
 /* Responsive para pantallas pequeñas */
 @media (max-width: 768px) {
     .productWrapper {
         flex-direction: column;
+        align-items: center;
+    }
+
+    .btnGroup {
+        flex-direction: row;
         align-items: center;
     }
 

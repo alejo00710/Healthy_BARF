@@ -1,50 +1,22 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from '../../styles/favorites/Favorites.module.css';
 import { useNavigate } from 'react-router-dom';
-import polloVerduras from '../../assets/images/pollo y verduras.jpg';
+import { useFavorites } from '../../context/FavoritesContext';
 
 const Favorites = () => {
   const navigate = useNavigate();
+  const { favorites, toggleFavorite } = useFavorites();
 
   const handleBack = () => {
     navigate(-1);
   };
 
-  // Datos de ejemplo basados en tu estructura
-  const favoriteProducts = [
-    {
-      id: 1,
-      name: "Ditta Pollo",
-      price: "$3.500",
-      weight: "500gr",
-      image: polloVerduras,
-      description: "Una breve explicación de producto quel nome di cliente di computer."
-    },
-    {
-      id: 2,
-      name: "Ditta Pollo",
-      price: "$3.500",
-      weight: "500gr",
-      image: polloVerduras,
-      description: "Una breve explicación de producto quel nome di cliente di computer."
-    },
-    {
-      id: 3,
-      name: "Ditta Pollo",
-      price: "$3.500",
-      weight: "500gr",
-      image: polloVerduras,
-      description: "Una breve explicación de producto quel nome di cliente di computer."
-    },
-    {
-      id: 4,
-      name: "Ditta Pollo",
-      price: "$3.500",
-      weight: "500gr",
-      image: polloVerduras,
-      description: "Una breve explicación de producto quel nome di cliente di computer."
-    }
-  ];
+  const handleFavoriteClick = (e, product) => {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleFavorite(product);
+  };
 
   return (
     <div className={styles.favoritesContainer}>
@@ -62,51 +34,39 @@ const Favorites = () => {
           </p>
         </div>
         
-        <div className={styles.productsGrid}>
-          {favoriteProducts.map((product) => (
-            <div key={product.id} className={styles.productCard}>
-              <div 
-                className={styles.productImage} 
-                style={{ backgroundImage: `url(${product.image})` }}
-              >
-                <button className={styles.favoriteIcon}>❤️</button>
-              </div>
-              <div className={styles.productInfo}>
-                <h3>{product.name}</h3>
-                <p className={styles.price}>{product.price} <span>* {product.weight}</span></p>
-              </div>
-              <div className={styles.productOverlay}>
-                <p className={styles.overlayDescription}>{product.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className={styles.productsHeader}>
-          <h2>Te pueden interesar</h2>
-          <p className={styles.productsDescription}>
-            Productos recomendados basados en tus favoritos
-          </p>
-        </div>
-        
-        <div className={styles.productsGrid}>
-          {favoriteProducts.map((product) => (
-            <div key={`rec-${product.id}`} className={styles.productCard}>
-              <div 
-                className={styles.productImage} 
-                style={{ backgroundImage: `url(${product.image})` }}
-              >
-              </div>
-              <div className={styles.productInfo}>
-                <h3>{product.name}</h3>
-                <p className={styles.price}>{product.price} <span>* {product.weight}</span></p>
-              </div>
-              <div className={styles.productOverlay}>
-                <p className={styles.overlayDescription}>{product.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+        {favorites.length === 0 ? (
+          <div className={styles.emptyFavorites}>
+            <p>No tienes productos favoritos aún</p>
+            <Link to="/catalogo" className={styles.catalogoLink}>
+              Ver catálogo
+            </Link>
+          </div>
+        ) : (
+          <div className={styles.productsGrid}>
+            {favorites.map((product) => (
+              <Link to={`/product/${product.id}`} key={product.id} className={styles.productCard}>
+                <div 
+                  className={styles.productImage} 
+                  style={{ backgroundImage: `url(${product.image})` }}
+                >
+                  <button 
+                    onClick={(e) => handleFavoriteClick(e, product)}
+                    className={styles.favoriteIcon}
+                  >
+                    ❤️
+                  </button>
+                </div>
+                <div className={styles.productInfo}>
+                  <h3>{product.name}</h3>
+                  <p className={styles.price}>{product.price} <span>* {product.weight}</span></p>
+                </div>
+                <div className={styles.productOverlay}>
+                  <p className={styles.overlayDescription}>{product.description}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

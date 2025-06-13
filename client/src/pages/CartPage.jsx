@@ -1,4 +1,4 @@
-
+import React from 'react';
 import Cart from '../components/cart/Cart';  // componente con el contenido del carrito
 
 

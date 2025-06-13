@@ -2,17 +2,23 @@ import React from 'react';
 import styles from '../../styles/home/FeaturedProducts.module.css';
 import { products } from '../../data/products';
 import { Link } from 'react-router-dom';
-
-
-
-
+import { useFavorites } from '../../context/FavoritesContext';
 
 const FeaturedProducts = () => {
+  const { toggleFavorite, isFavorite } = useFavorites();
+  // Filtrar solo los productos destacados
+  const featuredProducts = products.filter(product => product.featured);
+
+  const handleFavoriteClick = (e, product) => {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleFavorite(product);
+  };
+
   return (
     <section className={styles.featuredProducts}>
       <div className="container">
         <div className={styles.productsHeader}>
-          <br />
           <h2>Productos destacados</h2>
           <p className={styles.productsDescription}>
             Ingredientes libres de conservantes y aditivos...
@@ -20,7 +26,7 @@ const FeaturedProducts = () => {
         </div>
 
         <div className={styles.productsGrid}>
-          {products.map((product) => (
+          {featuredProducts.map((product) => (
             <Link to={`/product/${product.id}`} className={styles.productCard} key={product.id}>
               <div
                 className={styles.productImage}
@@ -33,8 +39,13 @@ const FeaturedProducts = () => {
               <div className={styles.productOverlay}>
                 <p className={styles.overlayDescription}>{product.description}</p>
                 <div className={styles.productIcons}>
-                  <Link to="/carritoProduct" className={styles.iconBtn}>🛒</Link>
-                  <Link to="/favorite" className={styles.iconBtn}>❤️</Link>
+                  <button className={styles.iconBtn}> 🛒</button>
+                  <button 
+                    onClick={(e) => handleFavoriteClick(e, product)}
+                    className={`${styles.iconBtn} ${isFavorite(product.id) ? styles.favoriteActive : ''}`}
+                  >
+                    {isFavorite(product.id) ? '❤️' : '🤍'}
+                  </button>
                 </div>
               </div>
             </Link>

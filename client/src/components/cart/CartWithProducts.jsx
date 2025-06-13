@@ -11,11 +11,11 @@ const CartWithProducts = () => {
         navigate(-1);
     }
     return (
-        
+
         <div className={styles.cartContainer}>
             <button onClick={handleBack} className={styles.backButton}>
-                                        &lt; Volver
-                                    </button>
+                &lt; Volver
+            </button>
             <img className={styles.logo} src={logo} alt="Healthy BARF logo" />
 
             <table className={styles.table}>
