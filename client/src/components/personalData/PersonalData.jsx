@@ -53,13 +53,6 @@ const PersonalData = () => {
                     <strong>Total</strong> <strong>$7.000</strong>
                 </p>
 
-                <div className={styles.cupon}>
-                    <p>
-                        <strong>¿Tienes un cupón?</strong>
-                    </p>
-                    <input type="text" placeholder="Ingresar el código promocional" />
-                    <button>Agregar</button>
-                </div>
             </div>
         </div>
     );
