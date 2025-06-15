@@ -1,0 +1,124 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Usuario {
+  id         Int           @id @default(autoincrement())
+  nombre     String
+  correo     String        @unique
+  contrasena String
+  rol        Rol           @default(CLIENTE)
+  favoritos  Favorito[]
+  pedidos    Pedido[]
+  creadoEn   DateTime      @default(now())
+}
+
+model Producto {
+  id           Int           @id @default(autoincrement())
+  nombre       String
+  descripcion  String
+  precio       Float
+  stock        Int
+  gramos       Float?  
+  compartido   Boolean       @default(false)
+  imagenUrl    String?
+  categoria    Categoria
+  subcategoria Subcategoria
+  favoritos    Favorito[]
+  itemsPedido  ItemPedido[]
+  movimientosStock MovimientoStock[]
+  creadoEn     DateTime      @default(now())
+}
+
+model Favorito {
+  id         Int      @id @default(autoincrement())
+  usuario    Usuario  @relation(fields: [usuarioId], references: [id])
+  usuarioId  Int
+  producto   Producto @relation(fields: [productoId], references: [id])
+  productoId Int
+  creadoEn   DateTime @default(now())
+
+  @@unique([usuarioId, productoId]) // Evita duplicados
+}
+
+model Pedido {
+  id        Int          @id @default(autoincrement())
+  usuario   Usuario      @relation(fields: [usuarioId], references: [id])
+  usuarioId Int
+  total     Float
+  estado    EstadoPedido @default(PENDIENTE)
+  direccion String
+  creadoEn  DateTime     @default(now())
+  items     ItemPedido[]
+}
+
+model ItemPedido {
+  id             Int      @id @default(autoincrement())
+  pedido         Pedido   @relation(fields: [pedidoId], references: [id])
+  pedidoId       Int
+  producto       Producto @relation(fields: [productoId], references: [id])
+  productoId     Int
+  cantidad       Int
+  precioUnitario Float
+}
+
+model MateriaPrima {
+  id          Int               @id @default(autoincrement())
+  nombre      String
+  descripcion String?
+  cantidad    Float
+  unidad      String
+  movimientos MovimientoStock[]
+  creadoEn    DateTime          @default(now())
+}
+
+model MovimientoStock {
+  id             Int            @id @default(autoincrement())
+  materiaPrima   MateriaPrima?   @relation(fields: [materiaPrimaId], references: [id])
+  materiaPrimaId Int?
+  tipo           TipoMovimiento
+  cantidad       Float
+  nota           String?
+  producto       Producto?  @relation(fields: [productoId], references: [id])
+  productoId     Int?
+  creadoEn       DateTime       @default(now())
+}
+
+enum Rol {
+  ADMIN
+  CLIENTE
+}
+
+enum Categoria {
+  PERRO
+  GATO
+}
+
+enum Subcategoria {
+  COMIDA_CRUDA
+  SNACK
+}
+
+enum EstadoPedido {
+  PENDIENTE
+  PAGADO
+  ENVIADO
+  ENTREGADO
+  CANCELADO
+}
+
+enum TipoMovimiento {
+  ENTRADA
+  SALIDA
+}
