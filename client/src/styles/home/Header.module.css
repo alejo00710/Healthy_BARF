@@ -1,6 +1,10 @@
 .header {
   background: #11BFBF;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
 }
 
 .topBar {
@@ -18,6 +22,9 @@
 }
 
 .mainNav {
+  position: sticky;
+  top: 0;
+  z-index: 999;
   padding: 4px 0;
 }
 
@@ -49,12 +56,28 @@
   color: #F2BC8D;
 }
 
+.navLinks button {
+  color: white;
+  background: none;
+  border: none;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+.navLinks button:hover {
+  color: #F2BC8D
+}
+
+
 .navIcons {
   display: flex;
   align-items: center;
   gap: 50px;
   justify-content: center;
-}
+  }
 
 .navIcons a,
 .navIcons Link {
@@ -78,7 +101,7 @@
   height: 90px;
   width: auto;
   display: block;
-}
+  }
 
 /* Orden específico para los íconos */
 .navIcons a:nth-child(1) {
@@ -152,6 +175,152 @@
     font-size: 13px;
   }
 }
+.menuToggle {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin-left: auto;
+}
 
-  
-  
+@media (max-width: 768px) {
+  .menuToggle {
+    display: block;
+  }
+
+  .navLinks {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background-color: #11BFBF;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 10px 0;
+    z-index: 998;
+  }
+
+  .navLinksVisible {
+    display: flex !important;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+
+.dropdownContainer {
+position: relative;
+display: inline-block;
+}
+
+.userBtn {
+background: none;
+border: none;
+cursor: pointer;
+font-size: 14px;
+color: #333;
+font-weight: bold; 
+padding: 4px 8px;
+}
+
+.dropdownMenu {
+position: absolute;
+right: 0;
+top: 100%;
+margin-top: 6px;
+background-color: #0d8b8b;
+border: 1px solid #ddd;
+box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+border-radius: 6px;
+z-index: 100;
+min-width: 140px;
+}
+
+.logoutBtn {
+width: 100%;
+padding: 8px 12px;
+border: none;
+background: none;
+text-align: center;
+cursor: pointer;
+color: #fff;
+font-weight: 500;
+font-size: 14px;
+}
+
+.logoutBtn:hover {
+background-color: #f9f9f9;
+color: #0d8b8b;
+}
+
+.iconfavorito{
+  background: none;
+  border: none;
+}
+
+.menuToggle {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+/* Menú desplegable en móvil */
+.navLinksVisible {
+  display: flex !important;
+}
+
+/* Ajustes en móvil */
+@media (max-width: 768px) {
+  .menuToggle {
+    display: block;
+  }
+
+  .navLinks {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background-color: #11BFBF;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 10px 0;
+    z-index: 998;
+  }
+
+  .navIcons {
+    margin-top: 10px;
+    gap: 20px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .logoImg {
+    height: 35px;
+    margin-left: 0;
+  }
+
+  .slogan {
+    font-size: 13px;
+  }
+
+  .navLinks a,
+  .navLinks button {
+    font-size: 14px;
+  }
+}

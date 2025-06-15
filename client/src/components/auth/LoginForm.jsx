@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import "../../styles/auth/auth.css";
-import logo from "../../assets/images/Healthy Barf icono sin fondo-14.png";
+import logo from "../../assets/images/logo-blanco.png";
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { AuthContext } from "../../context/AuthContext";
@@ -10,8 +10,8 @@ function Login() {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    email: "",
-    password: ""
+    correo: "",
+    contrasena: ""
   });
 
   const handleChange = (e) => {
@@ -22,20 +22,26 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:5000/api/auth/login", {
-        email: formData.email,
-        password: formData.password
+      const response = await axios.post("http://localhost:3000/auth/login", {
+        correo: formData.correo,
+        contrasena: formData.contrasena
       });
 
-      const { token } = response.data;
+      const { usuario, token } = response.data;
 
-      localStorage.setItem("token", token); // Guardamos el token
-      login(formData.email);                // Guardamos el email en el contexto
+      // Guardamos el usuario y token en el contexto y localStorage
+      login(usuario, token);
 
-      navigate("/"); // Redirigir al home
+      // Redirigimos según el rol
+      if (usuario.rol === "admin") {
+        navigate("/admin");
+      } else {
+        navigate("/");
+      }
+
     } catch (error) {
       console.error("Error en el login:", error);
-      alert(error.response?.data?.message || "Error en el servidor");
+      alert(error.response?.data?.mensaje || "Error en el servidor");
     }
   };
 
@@ -49,17 +55,17 @@ function Login() {
       <form onSubmit={handleSubmit}>
         <input
           type="email"
-          name="email"
+          name="correo"
           placeholder="Correo Electrónico"
-          value={formData.email}
+          value={formData.correo}
           onChange={handleChange}
           required
         />
         <input
           type="password"
-          name="password"
+          name="contrasena"
           placeholder="Contraseña"
-          value={formData.password}
+          value={formData.contrasena}
           onChange={handleChange}
           required
         />

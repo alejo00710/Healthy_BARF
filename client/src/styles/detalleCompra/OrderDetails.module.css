@@ -159,33 +159,6 @@
     }
 }
 
-/* Agregar estos estilos a tu archivo OrderDetails.module.css existente */
-
-.statusText {
-    font-weight: 600;
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.entregado {
-    background-color: #D1FAE5;
-    color: #065F46;
-}
-
-.encamino {
-    background-color: #FEF3C7;
-    color: #92400E;
-}
-
-.preparando {
-    background-color: #DBEAFE;
-    color: #1E40AF;
-}
-
 /* ======================= */
 /* Responsive: móviles     */
 /* ======================= */

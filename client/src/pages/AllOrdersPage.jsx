@@ -5,13 +5,14 @@ import Footer from '../components/home/Footer';
 import '../styles/home/home.css';
 
 const AllOrdersPage = () => {
-    return (
-        <div className="homeBody">
-            <Header />
-            <AllOrders />
-            <Footer />
-        </div>
-    );
+   return (
+       <div className="homeBody">
+           <Header />
+           <AllOrders />
+           <Footer />
+       </div>
+   );
 };
 
 export default AllOrdersPage ;
+

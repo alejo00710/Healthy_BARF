@@ -9,5 +9,6 @@ router.post('/', verificarToken, pedidoController.crearPedido);
 router.get('/usuario/:usuarioId', verificarToken, pedidoController.obtenerPedidosPorUsuario);
 router.get('/', verificarToken, verificarAdmin, pedidoController.obtenerTodosLosPedidos);
 router.put('/:id/estado', verificarToken, verificarAdmin, pedidoController.cambiarEstadoPedido);
-
+// NUEVA RUTA
+router.get('/mis-pedidos', verificarToken, pedidoController.obtenerMisPedidos);
 export default router; // <-- esto es lo importante

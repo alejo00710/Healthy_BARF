@@ -10,8 +10,8 @@
 
 /* Logo */
 .logo {
-    max-width: 200px;
-    margin: 0 auto 30px;
+    width: 150px;
+    height: 100px;
 }
 
 .backButton {

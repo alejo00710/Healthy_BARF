@@ -42,4 +42,16 @@ import {
       res.status(500).json({ error: err.message });
     }
   };
+  // NUEVO: Pedidos del usuario autenticado
+export const obtenerMisPedidos = async (req, res) => {
+  try {
+    const usuarioId = req.usuario.id;
+    const pedidos = await obtenerPedidosPorUsuarioService(usuarioId);
+    res.json(pedidos);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+
   

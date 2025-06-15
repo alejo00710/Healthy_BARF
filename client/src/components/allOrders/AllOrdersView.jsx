@@ -1,74 +1,38 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from '../../styles/allOrders/AllOrders.module.css';
 import headerImage from '../../assets/images/Healthy Barf icono sin fondo-12.png';
-import polloVerduras from '../../assets/images/pollo y verduras.jpg';
+import polloVerduras from '../../assets/images/pollo-verduras.jpg'; // Puedes usar como placeholder si no hay imagen
 import { useNavigate } from 'react-router-dom';
 import { useOrder } from '../../context/OrderContext'; 
 
 export default function AllOrdersView() {
     const navigate = useNavigate();
-    const { getAllOrders } = useOrder();
+    const { orders, fetchOrders } = useOrder();
 
-    // Obtener todos los pedidos del contexto
-    const allOrders = getAllOrders();
+    useEffect(() => {
+        fetchOrders();
+    }, []);
 
-    // Datos de ejemplo si no hay pedidos guardados (para testing)
-    const defaultOrders = [
-        {
-            id: 1,
-            date: "12 de marzo de 2025",
-            total: "$ 7.000",
-            status: "Entregado",
-            products: [
-                { name: "Dosis de pollo", weight: "500gr", image: polloVerduras },
-                { name: "Dosis de res", weight: "500gr", image: polloVerduras }
-            ],
-            productCount: 2
-        },
-        {
-            id: 2,
-            date: "8 de marzo de 2025",
-            total: "$ 3.500",
-            status: "En camino",
-            products: [
-                { name: "Dosis de pollo", weight: "500gr", image: polloVerduras }
-            ],
-            productCount: 1
-        },
-        {
-            id: 3,
-            date: "25 de febrero de 2025",
-            total: "$ 10.500",
-            status: "Entregado",
-            products: [
-                { name: "Dosis de pollo", weight: "500gr", image: polloVerduras },
-                { name: "Dosis de res", weight: "500gr", image: polloVerduras },
-                { name: "Dosis de pescado", weight: "500gr", image: polloVerduras }
-            ],
-            productCount: 3
-        }
-    ];
-
-    // Usar pedidos del contexto o datos de ejemplo
-    const ordersToShow = allOrders.length > 0 ? allOrders : defaultOrders;
+    const ordersToShow = orders.length > 0 ? orders : [];
 
     const handleBack = () => {
         navigate(-1);
     };
 
     const handleOrderClick = (orderId) => {
-        // Navegar a la vista de detalle pasando el ID del pedido
         navigate(`/order-details/${orderId}`);
     };
 
     const getStatusClass = (status) => {
-        switch (status) {
-            case 'Entregado':
+        switch (status.toLowerCase()) {
+            case 'entregado':
                 return styles.statusDelivered;
-            case 'En camino':
+            case 'en camino':
                 return styles.statusInTransit;
-            case 'Preparando':
+            case 'preparando':
                 return styles.statusPreparing;
+            case 'pendiente':
+                return styles.statusDefault;
             default:
                 return styles.statusDefault;
         }
@@ -119,7 +83,7 @@ export default function AllOrdersView() {
                                     {order.products && order.products.slice(0, 3).map((product, index) => (
                                         <img
                                             key={index}
-                                            src={product.image}
+                                            src={product.image || polloVerduras}
                                             alt={product.name}
                                             className={styles.productImage}
                                         />
@@ -132,7 +96,7 @@ export default function AllOrdersView() {
                                 </div>
                                 <div className={styles.productInfo}>
                                     <p className={styles.productCount}>
-                                        {order.productCount || order.products?.length || 0} {(order.productCount || order.products?.length || 0) === 1 ? 'producto' : 'productos'}
+                                        {order.productCount} {order.productCount === 1 ? 'producto' : 'productos'}
                                     </p>
                                     <p className={styles.orderTotal}>{order.total}</p>
                                 </div>
@@ -156,3 +120,4 @@ export default function AllOrdersView() {
         </div>
     );
 }
+

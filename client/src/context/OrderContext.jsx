@@ -1,62 +1,63 @@
-// OrderContext.jsx - Contexto para manejar el pedido actual
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import { useAuth } from './AuthContext';
 
 const OrderContext = createContext();
 
-export const useOrder = () => {
-    const context = useContext(OrderContext);
-    if (!context) {
-        throw new Error('useOrder must be used within an OrderProvider');
-    }
-    return context;
-};
-
 export const OrderProvider = ({ children }) => {
-    const [currentOrderId, setCurrentOrderId] = useState(null);
-    const [orderHistory, setOrderHistory] = useState([]);
+  const [orders, setOrders] = useState([]);
+  const { token } = useAuth();
 
-    // Función para crear un nuevo pedido
-    const createOrder = (orderData) => {
-        const newOrderId = Date.now(); // Usamos timestamp como ID único
-        const newOrder = {
-            id: newOrderId,
-            ...orderData,
-            date: new Date().toLocaleDateString('es-ES', {
-                day: 'numeric',
-                month: 'long',
-                year: 'numeric'
-            }),
-            status: 'Preparando'
-        };
+ const fetchOrders = async () => {
+  if (!token) return;
 
-        setCurrentOrderId(newOrderId);
-        setOrderHistory(prev => [newOrder, ...prev]);
-        
-        return newOrderId;
-    };
+  try {
+    const response = await fetch('http://localhost:3000/pedido/mis-pedidos', {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
-    // Función para obtener un pedido específico
-    const getOrder = (orderId) => {
-        return orderHistory.find(order => order.id === parseInt(orderId));
-    };
+    const data = await response.json();
 
-    // Función para obtener todos los pedidos
-    const getAllOrders = () => {
-        return orderHistory;
-    };
+    if (!Array.isArray(data)) {
+      throw new Error("La respuesta del backend no es un array");
+    }
 
-    const value = {
-        currentOrderId,
-        setCurrentOrderId,
-        createOrder,
-        getOrder,
-        getAllOrders,
-        orderHistory
-    };
+    const mapped = data.map(pedido => ({
+  id: pedido.id,
+  date: new Date(pedido.creadoEn).toLocaleDateString('es-CO', {
+    day: 'numeric', month: 'long', year: 'numeric'
+  }),
+  total: `$ ${pedido.total.toLocaleString()}`,
+  status: pedido.estado || 'Pendiente',
+  products: pedido.items.map(i => ({
+    name: i.producto.nombre,
+    image: i.producto.imagen || '', // Asegúrate de tener este campo en tu modelo
+  })),
+  productCount: pedido.items.length,
+}));
 
-    return (
-        <OrderContext.Provider value={value}>
-            {children}
-        </OrderContext.Provider>
-    );
+
+    setOrders(mapped);
+  } catch (err) {
+    console.error('Error al traer pedidos:', err);
+  }
 };
+
+
+
+  useEffect(() => {
+    fetchOrders();
+  }, [token]);
+
+  const getAllOrders = () => orders;
+
+  return (
+    <OrderContext.Provider value={{ orders, fetchOrders, getAllOrders }}>
+      {children}
+    </OrderContext.Provider>
+  );
+};
+
+export const useOrder = () => useContext(OrderContext);
+

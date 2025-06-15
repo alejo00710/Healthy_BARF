@@ -13,10 +13,6 @@ const Profile = () => {
     navigate(-1);
   };
 
-  const handleViewAllOrders = () => {
-        navigate('/all-orders');
-    };
-
   return (
     <div className={styles.profileContainer}>
      {/* Nueva sección de imagen de encabezado */}
@@ -126,9 +122,7 @@ const Profile = () => {
                 <span>$3.500</span>
               </div>
             </div>
-            <button className={styles.detailsButton}
-            onClick={handleViewAllOrders}
-            >
+            <button className={styles.detailsButton}>
               Ver más detalles
             </button>
           </div>

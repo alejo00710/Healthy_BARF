@@ -2,14 +2,14 @@ import React from 'react';
 import styles from '../../styles/home/OurProducts.module.css';
 import dogImage from '../../assets/images/perro.png';
 import catImage from '../../assets/images/gato1.png';
-import bgImage from '../../assets/images/Diseño sin título (2).png';
+// import bgImage from '../../assets/images/Diseño sin título (2).png';
 import { Link } from 'react-router-dom';
 
 const OurProducts = () => {
   return (
     <section
       className={styles.ourProducts}
-      style={{ backgroundImage: `url(${bgImage})` }}
+      // style={{ backgroundImage: `url(${bgImage})` }}
     >
       <div className="container">  
         <h2 className={styles.sectionTitle1}>Nuestros Productos</h2>

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { useEffect } from "react";
 import "../../styles/auth/auth.css";
-import logo from "../../assets/images/Healthy Barf icono sin fondo-14.png";
+import logo from "../../assets/images/logo-blanco.png";
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -10,56 +9,33 @@ function Register() {
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [formData, setFormData] = useState({
     nombre: '',
-    telefono: '',
     correo: '',
-    direccion: '',
-    contraseña: '',
-    confirmarContraseña: ''
+    contrasena: '',
+    confirmarcontrasena: ''
   });
 
-  const handleCheckboxChange = (e) => {
-    setAcceptedTerms(e.target.checked);
-  };
-
-  useEffect(() => {
-  const accepted = sessionStorage.getItem('acceptedTerms');
-  const savedFormData = sessionStorage.getItem('formData');
-
-  if (accepted === 'true') {
-    setAcceptedTerms(true);
-    sessionStorage.removeItem('acceptedTerms');
-  }
-
-  if (savedFormData) {
-    setFormData(JSON.parse(savedFormData));
-    sessionStorage.removeItem('formData');
-  }
-}, []);
-
-
- const handleChange = (e) => {
+  const handleChange = (e) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (formData.contraseña !== formData.confirmarContraseña) {
-      alert("Las contraseñas no coinciden");
+    if (formData.contrasena !== formData.confirmarcontrasena) {
+      alert("Las contrasenas no coinciden");
       return;
     }
 
     try {
-      const response = await axios.post("http://localhost:5000/api/auth/register", {
+      const response = await axios.post("http://localhost:3000/auth/registro", {
         nombre: formData.nombre,
-        telefono: formData.telefono,
-        email: formData.correo, 
-        direccion: formData.direccion,
-        password: formData.contraseña,
+        correo: formData.correo,
+        contrasena: formData.contrasena
       });
 
-      alert(response.data.mensaje);
+      alert("Registro exitoso", response);
       navigate("/login");
+
     } catch (error) {
       console.error("Error en el registro:", error);
       alert(error.response?.data?.mensaje || "Error en el servidor");
@@ -67,96 +43,69 @@ function Register() {
   };
 
   return (
-  <div className="form-container">
-    <div className="close-button" onClick={() => navigate('/')}>×</div>
-    <div className="logo">
-      <img src={logo} alt="Healthy BARF Logo" />
-    </div>
+    <div className="form-container">
+      <div className="close-button" onClick={() => navigate('/')}>×</div>
+      <div className="logo">
+        <img src={logo} alt="Healthy BARF Logo" />
+      </div>
 
-    <form onSubmit={handleSubmit}>
-      <div className="form-group">
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           name="nombre"
           placeholder="Nombre"
           value={formData.nombre}
           onChange={handleChange}
+          required
         />
-        <input
-          type="text"
-          name="telefono"
-          placeholder="Teléfono"
-          value={formData.telefono}
-          onChange={handleChange}
-        />
-      </div>
-      <div className="form-group">
         <input
           type="email"
           name="correo"
           placeholder="Correo Electrónico"
           value={formData.correo}
           onChange={handleChange}
+          required
         />
-        <input
-          type="text"
-          name="direccion"
-          placeholder="Dirección"
-          value={formData.direccion}
-          onChange={handleChange}
-        />
-      </div>
-      <div className="form-group-full">
         <input
           type="password"
-          name="contraseña"
-          placeholder="Contraseña"
-          value={formData.contraseña}
+          name="contrasena"
+          placeholder="contrasena"
+          value={formData.contrasena}
           onChange={handleChange}
+          required
         />
-      </div>
-      <div className="form-group-full">
         <input
           type="password"
-          name="confirmarContraseña"
-          placeholder="Confirmar Contraseña"
-          value={formData.confirmarContraseña}
+          name="confirmarcontrasena"
+          placeholder="Confirmar contrasena"
+          value={formData.confirmarcontrasena}
           onChange={handleChange}
+          required
         />
-      </div>
 
-      <div className="form-group-full">
         <label>
           <input
             type="checkbox"
             checked={acceptedTerms}
-            onChange={handleCheckboxChange}
+            onChange={(e) => setAcceptedTerms(e.target.checked)}
+            required
           />
-          &nbsp; He leído y acepto los
-          <span
-            onClick={() => {
-              sessionStorage.setItem('formData', JSON.stringify(formData));
-              navigate('/terminos');
-            }}
-          >
+          &nbsp; Acepto los{" "}
+          <span onClick={() => navigate('/terminos')} style={{ textDecoration: 'underline', cursor: 'pointer' }}>
             Términos y Condiciones
           </span>
         </label>
-      </div>
 
-      <div className="form-button">
-        <button type="submit" disabled={!acceptedTerms}>
-          Registrarme
-        </button>
-      </div>
+        <div className="form-button">
+          <button type="submit" disabled={!acceptedTerms}>Registrarme</button>
+        </div>
 
-      <div className="form-footer">
-        <Link to="/login">¿Tienes una cuenta? Inicia sesión</Link>
-      </div>
-    </form>
-  </div>
-);
-
+        <div className="form-footer">
+          <Link to="/login">¿Tienes una cuenta? Inicia sesión</Link>
+        </div>
+      </form>
+    </div>
+  );
 }
 
 export default Register;

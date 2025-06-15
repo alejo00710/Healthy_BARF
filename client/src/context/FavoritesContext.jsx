@@ -42,6 +42,7 @@ export const FavoritesProvider = ({ children }) => {
 
     const value = {
         favorites,
+        setFavorites,
         addToFavorites,
         removeFromFavorites,
         isFavorite,

@@ -1,21 +1,79 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from '../../styles/favorites/Favorites.module.css';
-import { useNavigate } from 'react-router-dom';
 import { useFavorites } from '../../context/FavoritesContext';
+import { useAuth } from '../../context/AuthContext'; // si ya tenés un contexto de auth
 
 const Favorites = () => {
   const navigate = useNavigate();
-  const { favorites, toggleFavorite } = useFavorites();
+  const { favorites, toggleFavorite, setFavorites } = useFavorites();
+  const { user, token } = useAuth(); // user.id y token deben estar disponibles
 
-  const handleBack = () => {
-    navigate(-1);
-  };
+  // 🔁 Cargar favoritos desde backend al iniciar componente
+  useEffect(() => {
+    if (!user || !token) return;
 
-  const handleFavoriteClick = (e, product) => {
+    const fetchFavorites = async () => {
+      try {
+        const response = await fetch(`http://localhost:3000/perfil/${user.id}/favoritos`, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+    
+        if (!response.ok) {
+          const text = await response.text();
+          console.error("Error de backend:", response.status, text); // <--- 👈 más detalles
+          throw new Error("Error al obtener favoritos");
+        }
+    
+        const data = await response.json();
+        setFavorites(data);
+      } catch (error) {
+        console.error("Error al obtener favoritos:", error);
+      }
+    };
+
+    fetchFavorites();
+  }, [user, token, setFavorites]);
+
+  const handleBack = () => navigate(-1);
+
+  const handleFavoriteClick = async (e, product) => {
     e.preventDefault();
     e.stopPropagation();
-    toggleFavorite(product);
+
+    try {
+      const isAlreadyFav = favorites.some(fav => fav.id === product.id);
+
+      if (isAlreadyFav) {
+        // DELETE favorito
+        await fetch(`http://localhost:3000/favoritos/${product.id}`, {
+          method: 'DELETE',
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+      } else {
+        // POST favorito
+        await fetch(`${import.meta.env.VITE_API_URL}/favoritos`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            usuarioId: user.id,
+            productoId: product.id,
+          }),
+        });
+      }
+
+      // Actualiza en frontend
+      toggleFavorite(product);
+    } catch (error) {
+      console.error('Error al actualizar favorito:', error);
+    }
   };
 
   return (
@@ -44,27 +102,36 @@ const Favorites = () => {
         ) : (
           <div className={styles.productsGrid}>
             {favorites.map((product) => (
-              <Link to={`/product/${product.id}`} key={product.id} className={styles.productCard}>
-                <div 
-                  className={styles.productImage} 
-                  style={{ backgroundImage: `url(${product.image})` }}
-                >
-                  <button 
-                    onClick={(e) => handleFavoriteClick(e, product)}
-                    className={styles.favoriteIcon}
-                  >
-                    ❤️
-                  </button>
-                </div>
-                <div className={styles.productInfo}>
-                  <h3>{product.name}</h3>
-                  <p className={styles.price}>{product.price} <span>* {product.weight}</span></p>
-                </div>
-                <div className={styles.productOverlay}>
-                  <p className={styles.overlayDescription}>{product.description}</p>
-                </div>
-              </Link>
-            ))}
+  <div
+    key={product.id}
+    className={styles.productCard}
+    onClick={() => navigate(`/product/${product.id}`)}
+    role="button"
+    tabIndex={0}
+    onKeyDown={(e) => { if (e.key === 'Enter') navigate(`/product/${product.id}`) }}
+  >
+    <div 
+      className={styles.productImage} 
+      style={{ backgroundImage: `url(${product.imagenUrl})` }}
+    >
+      <button 
+        onClick={(e) => handleFavoriteClick(e, product)}
+        className={styles.favoriteIcon}
+      >
+        ❤️
+      </button>
+    </div>
+    <div className={styles.productInfo}>
+      <h3>{product.nombre}</h3>
+      <p className={styles.price}>
+        ${product.precio} <span> {product.gramos}gr</span>
+      </p>
+    </div>
+    <div className={styles.productOverlay}>
+      <p className={styles.overlayDescription}>{product.description}</p>
+    </div>
+  </div>
+))}
           </div>
         )}
       </div>
